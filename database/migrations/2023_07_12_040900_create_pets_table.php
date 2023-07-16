@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('image_id')->nullable()->constrained();
+            $table->string('name');
+            $table->string('nickname')->nullable();
+            $table->foreignId('pet_type_id')->constrained('pet_types', 'id');
+            $table->string('breed');
+            $table->integer('age');
+            $table->string('gender', '20');
+            $table->string('features');
+            $table->string('color');
+            $table->string('city', '140');
+            $table->string('allergies')->nullable();
+            $table->string('veterinarian')->nullable();
             $table->timestamps();
         });
     }
