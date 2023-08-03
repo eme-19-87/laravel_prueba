@@ -17,7 +17,9 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=>fake()->name,
+            'size'=>rand(1, 10),
+            'path'=>fake()->imageUrl(640, 480, 'animals', true)
         ];
     }
 }

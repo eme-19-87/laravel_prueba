@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('image_id')->nullable()->constrained();
             $table->string('name');
-            $table->string('nickname')->nullable();
             $table->foreignId('pet_type_id')->constrained('pet_types', 'id');
             $table->string('breed');
             $table->integer('age');

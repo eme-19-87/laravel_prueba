@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PetType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,11 @@ class PetTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        PetType::create([
+            'name'=>'dog'
+        ]);
+        PetType::create([
+            'name'=>'cat'
+        ]);
     }
 }
