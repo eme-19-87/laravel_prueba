@@ -1,9 +1,9 @@
 <x-app-layout>
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-          <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Raw Denim Heirloom Man Braid</h1>
-            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</p>
+            <div class="text-center mb-20">
+            <h2 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Posts y Anuncios</h2>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Estamos constantemente subiendo posts acerca de tecnicas para mejorar el cuidado de tu mejor amigo mascota</p>
             <div class="flex mt-6 justify-center">
               <div class="w-16 h-1 rounded-full bg-purple-500 inline-flex"></div>
             </div>

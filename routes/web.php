@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,17 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin',[AdminController::class,'index'] );
-Route::resource('users', UserController::class)->names('admin.users');
 Route::get('/admin', function () {
+
     return view('admin.index');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', function () {
 
-Route::get('/home', function () {
+    return view('home');
+});
+ */
+Route::get('/', function () {
     return view('home.index');
 });
 
@@ -40,3 +39,24 @@ Route::get('/contact', function () {
     return view('contact.index');
 });
 
+/* Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+ */
+/* Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
