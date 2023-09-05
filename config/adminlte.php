@@ -131,7 +131,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => '--bs-dark-bg-subtle',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-danger elevation-4',
+    'classes_sidebar' => ' sidebar-danger elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -311,33 +311,62 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'Navegacion'],
+        [
+             'text'        => 'Inicio',
+             'url'         => 'admin.index',
+             'icon'        => 'fa fa-solid fa-house-user fa-fw',
+             
+        ],
         ['header' => 'Posts'],
         [
             'text'        => 'Posts',
+            'url'         => '#',
+            'icon'        => 'fas fa-solid fa-newspaper fa-fw',
+            
+        ],
+        ['header' => 'Veterinaria'],
+        [
+            'text'        => 'Vacunas',
             'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'icon'        => 'fas fa-solid fa-syringe fa-fw',
+       
         ],
         [
             'text' => 'Categorias',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'url'  => 'admin.categories.index',
+            'icon' => 'fas fa-solid fa-book fa-fw',
+        ],
+        ['header' => 'Mis Mascotas'],
+        [
+            'text'       => 'Rocco',
+            'icon_color' => 'red',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Caca',
+            'icon_color' => 'yellow',
+            'url'        => '#',
+        ],
+        [
+            'text'       => 'Negro',
+            'icon_color' => 'cyan',
+            'url'        => '#',
         ],
         ['header' => 'Configuracion de Cuentas'],
         [
             'text' => 'Perfil',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-user fa-fw',
         ],
         [
             'text' => 'Configuracion de Usuario',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-fw fa-lock fa-fw',
         ],
         [
             'text'    => 'Roles',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-share fa-fw',
             'submenu' => [
                 [
                     'text' => 'Administrador',
@@ -356,22 +385,6 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'Cacac'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 
