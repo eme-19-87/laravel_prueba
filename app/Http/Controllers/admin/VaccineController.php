@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vaccine;
 
 class VaccineController extends Controller
 {
@@ -11,7 +12,9 @@ class VaccineController extends Controller
      */
     public function index()
     {
-        //
+        $vaccines = Vaccine::all();
+        
+        return view('admin.vaccines.index', compact('vaccines'));
     }
 
     /**

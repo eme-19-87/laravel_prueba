@@ -1,9 +1,9 @@
 @extends('adminlte::page')
-@section('title', 'Tempano')
+@section('title', 'IdenMac')
 
 @section('content_header')
     <a class="btn btn-primary btn-sm float-lg-right" href="{{route('admin.posts.create')}}">Nuevo Post</a>
-    <h1 class="bg-red-400">Estado del post cscac</h1>
+    <h1 class="bg-red-400">Estado del post</h1>
 @stop
 
 @section('content')

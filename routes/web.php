@@ -6,23 +6,18 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
+|c
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
 
-Route::get('/admin', function () {
+/* Route::get('/admin', function () {
 
     return view('admin.index');
-});
+}); */
 
-/* Route::get('/', function () {
-
-    return view('home');
-});
- */
 Route::get('/', function () {
     return view('home.index');
 });
@@ -39,7 +34,13 @@ Route::get('/contact', function () {
     return view('contact.index');
 });
 
-/* Route::middleware([
+
+ /* Posts Vistas-User */
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show'); /* Vista de Cada Post */
+
+
+Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
@@ -48,15 +49,4 @@ Route::get('/contact', function () {
         return view('dashboard');
     })->name('dashboard');
 });
- */
-/* Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

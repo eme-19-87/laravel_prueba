@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tempano')
+@section('title', 'IdenMac')
 
 @section('content_header')
     <h1>Editar Categoria</h1>

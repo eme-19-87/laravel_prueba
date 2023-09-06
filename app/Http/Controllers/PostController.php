@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -11,54 +14,30 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::where('status', 2)->latest('id')->paginate(4);
+
+        return view('posts.index', compact('posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function show(Post $post){
+        $similares = Post::where('category_id', $post->category_id)
+                            ->where('status', 2)
+                            ->where('id', '!=', $post->id)
+                            ->latest('id')
+                            ->take(4)
+                            ->get();
+        return view('posts.show', compact('post', 'similares'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+     /* Muestra lo que tengo almacenado en $category por el metodo Category */
+     public function category(Category $category){
+        $posts = Post::where('category_id', $category->id)
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+                        ->where('status', 2)
+                        ->latest('id')
+                        ->paginate(4);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return view('posts.category', compact('posts','category'));
     }
 }

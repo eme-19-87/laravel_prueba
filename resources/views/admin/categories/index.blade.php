@@ -1,15 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Tempano')
+@section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Categorias</h1>
+    <h1>Lista de Categorias</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="text-white btn bg-blue-600" href="{{route('admin.categories.create')}}">Agregar Categorias</a>
+            <a class="text-white btn btn-primary" href="{{route('admin.categories.create')}}">Agregar Categorias</a>
         </div>
         @if (session('info'))
         <div class="alert alert-success">
@@ -37,13 +37,13 @@
                         <td>{{$category->name}}</td>
                         <td>{{$category->description}}</td>
                         <td width="10px">
-                            <a  class="text-white rounded-lg btn bg-blue-600" href="{{route('admin.categories.edit', $category)}}">Editar</a></td>
+                            <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.categories.edit', $category)}}">Editar</a></td>
                         <td width="10px">
                             <form action="{{route('admin.categories.destroy', $category)}}" method="POST">
                                 @csrf
                                 @method('delete')
 
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn bg-red-600">Eliminar</button>
+                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                      </tr>

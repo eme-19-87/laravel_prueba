@@ -13,9 +13,20 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+
+
+            
             $table->string('title');
-            $table->foreignId('image_id')->nullable()->constrained();
-            $table->text('content');
+            $table->string('slug');
+            $table->string('extract')->nullable();
+            $table->string('body')->nullable();
+            $table->enum('status', [1, 2])->default(1);
+
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -307,63 +307,84 @@ return [
             'text' => 'Buscar',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'        => 'blog',
+            'url'         => 'admin/blog',
+            /* 'can'  => 'manage-blog', */
         ],
-        ['header' => 'Navegacion'],
+
+
+        [    'header'     => 'Navegacion'],
         [
-             'text'        => 'Inicio',
-             'url'         => 'admin.index',
-             'icon'        => 'fa fa-solid fa-house-user fa-fw',
+             'text'       => 'Inicio',
+             'url'        => 'admin',
+             'icon'       => 'fa fa-solid fa-house-user fa-fw',
              
         ],
-        ['header' => 'Posts'],
+        [
+            'text'        => 'Volver a Pagina Web',
+            'url'         => '/',
+            'icon'        => 'fa fa-solid fa-reply fa-fw',
+            
+       ],
+
+
+        [   'header'      => 'Posts'],
         [
             'text'        => 'Posts',
-            'url'         => '#',
+            'route'       => 'admin.posts.index',
             'icon'        => 'fas fa-solid fa-newspaper fa-fw',
             
         ],
-        ['header' => 'Veterinaria'],
+
+
+        ['header'         => 'Administrador'],
         [
             'text'        => 'Vacunas',
-            'url'         => 'admin/pages',
+            'url'         => 'admin.vaccines.index',
             'icon'        => 'fas fa-solid fa-syringe fa-fw',
        
         ],
+
         [
-            'text' => 'Categorias',
-            'url'  => 'admin.categories.index',
-            'icon' => 'fas fa-solid fa-book fa-fw',
+            'text'        => 'Categorias',
+            'route'       => 'admin.categories.index',
+            'icon'        => 'fas fa-solid fa-book fa-fw',
         ],
+
+
         ['header' => 'Mis Mascotas'],
         [
-            'text'       => 'Rocco',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'        => 'Rocco',
+            'icon_color'  => 'red',
+            'url'         => '#',
         ],
+
         [
-            'text'       => 'Caca',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'        => 'Caca',
+            'icon_color'  => 'yellow',
+            'url'         => '#',
         ],
+
         [
-            'text'       => 'Negro',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'        => 'Negro',
+            'icon_color'  => 'cyan',
+            'url'         => '#',
         ],
+
+
         ['header' => 'Configuracion de Cuentas'],
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'url'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-user fa-fw',
         ],
+
         [
             'text' => 'Configuracion de Usuario',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock fa-fw',
         ],
+        
         [
             'text'    => 'Roles',
             'icon'    => 'fas fa-fw fa-share fa-fw',
