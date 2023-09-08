@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('medical_records', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->unsignedBigInteger('imageable_id');
-            $table->string('imageable_type');
+            $table->unsignedBigInteger('pets_has_vaccines_id');
+            $table->string('allergies')->nullable();
+            $table->string('veterinarian')->nullable();
+
+            $table->foreign('pets_has_vaccines_id')->references('id')->on('pets_has_vaccines')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('medical_records');
     }
 };

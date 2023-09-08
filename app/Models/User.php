@@ -20,7 +20,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'first_name',
         'last_name',
         'phone',
@@ -62,5 +61,9 @@ class User extends Authenticatable
 
     public function posts(){
         return $this->hasMany(Post::class);
+    }
+
+    public function pets(){
+        return $this->hasMany(Pet::class);
     }
 }

@@ -36,9 +36,9 @@ class StorePostRequest extends FormRequest
        if ($this->status == 2){
             $rules = array_merge ($rules, [
                 'category_id' => 'required',
-                /* 'tags' => 'required', */
-               /*  'extract' => 'required',
-                'body' => 'required' */
+                'tags' => 'required',
+                'extract' => 'required',
+                'body' => 'required'
              ]);
         }
 

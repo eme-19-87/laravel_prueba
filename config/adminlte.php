@@ -340,7 +340,7 @@ return [
         ['header'         => 'Administrador'],
         [
             'text'        => 'Vacunas',
-            'url'         => 'admin.vaccines.index',
+            'route'         => 'admin.vaccines.index',
             'icon'        => 'fas fa-solid fa-syringe fa-fw',
        
         ],
@@ -349,6 +349,12 @@ return [
             'text'        => 'Categorias',
             'route'       => 'admin.categories.index',
             'icon'        => 'fas fa-solid fa-book fa-fw',
+        ],
+
+        [
+            'text'        => 'Etiquetas',
+            'route'       => 'admin.tags.index',
+            'icon'        => 'fas fa-solid fa-hashtag fa-fw',
         ],
 
 

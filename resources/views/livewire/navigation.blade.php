@@ -2,7 +2,7 @@
   <nav class="text-gray-600 z-10 body-font">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-          <a href="/home" class="mr-5 hover:text-gray-900">Inicio</a>
+          <a href="/" class="mr-5 hover:text-gray-900">Inicio</a>
           <a href="/about" class="mr-5 hover:text-gray-900">Nosotros</a>
           <a href="/blog" class="mr-5 hover:text-gray-900">Blog</a>
           <a href="/contact" class="hover:text-gray-900">Contactanos</a>

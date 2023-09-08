@@ -12,6 +12,18 @@ class Pet extends Model
 
     public function pettypes(){
         return $this->belongsTo(PetType::class);
-}
+    }
+
+    public function medical_records(){
+        return $this->belongsTo(MedicalRecords::class);
+    }
+
+    public function pets_has_vaccines(){
+        return $this->hasMany(PetsHasVaccines::class);
+    }
+
+    public function users(){
+        return $this->belongsTo(User::class);
+    }
 
 }

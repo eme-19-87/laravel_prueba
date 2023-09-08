@@ -3,7 +3,7 @@
 @section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Detalle de Categoria</h1>
+    <h1>Detalle de Etiqueta</h1>
 @stop
 
 @section('content')

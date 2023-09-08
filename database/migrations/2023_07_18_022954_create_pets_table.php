@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('features');
             $table->string('color');
             $table->string('city', '140');
-            $table->string('allergies')->nullable();
-            $table->string('veterinarian')->nullable();
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

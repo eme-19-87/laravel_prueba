@@ -1,12 +1,58 @@
 <x-app-layout>
-  <section class="text-gray-600 h-50% body-font relative">
-      <div class="absolute inset-0">
-        <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14160.716925348348!2d-58.84041635!3d-27.46367895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1693599394801!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
+  <section class="text-gray-600 h-[100vh] z-30 body-font relative">
+
+
+      <div id="map" class="absolute inset-0">
+        <script class="">
+
+          /* Muestra el mapa */
+          var map = L.map('map').setView([-27.467269, -58.838825], 13);
+          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              maxZoom: 19,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }).addTo(map);
+
+          var popup = L.popup();
+
+          /* Punto marcado con PopUp de detalleal clickear */
+          var marker = L.marker([-27.467269, -58.838825],
+          {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
+          .bindPopup('Corriente pora co mi gente');
+
+
+          /* PopUp con la coordenada clickeada */
+          function onMapClick(e) {
+              popup
+                  .setLatLng(e.latlng)
+                  .setContent("You clicked the map at " + e.latlng.toString())
+                  .openOn(map);
+          }
+
+          map.on('click', onMapClick);
+
+        </script>
+
       </div>
       <div class="container px-5 py-24 mx-auto flex">
-        <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+        <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative shadow-md">
           <h2 class="text-gray-900 text-lg font-medium title-font">Contactanos</h2>
           <p class="leading-relaxed mb-2 text-gray-600">Contactate con nosotros para aplicar mejoras en este proyecto</p>
+          <div class="drawer">
+            <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+              <!-- Page content here -->
+              <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+            </div> 
+            <div class="drawer-side">
+              <label for="my-drawer" class="drawer-overlay"></label>
+              <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                <!-- Sidebar content here -->
+                <li><a>Veterinaria 1</a></li>
+                <li><a>Veterinaria 2</a></li>
+                
+              </ul>
+            </div>
+          </div>
           <div class="flex justify-center justify-items-center gap-6">
             <div class="relative mb-4">
               <a href="" class="leading-7 text-sm text-gray-600">Email

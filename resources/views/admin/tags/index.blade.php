@@ -3,13 +3,13 @@
 @section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Lista de Vacunas</h1>
+    <h1>Lista de Etiquetas</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="text-white btn btn-primary" href="{{route('admin.vaccines.create')}}">Agregar Categorias</a>
+            <a class="text-white btn btn-primary" href="{{route('admin.tags.create')}}">Agregar Etiqueta</a>
         </div>
         @if (session('info'))
         <div class="alert alert-success">
@@ -24,32 +24,26 @@
                 <thead>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Forma</th>
-                    <th>Marca</th>
-                    <th>Dosis</th>
-                    <th>Alerta</th>
+                    <th>Descripcion</th>
                     <th colspan="2"></th>
 
                 </thead>
 
                 <tbody>
 
-                 @foreach ($vaccine as $vaccine)
+                 @foreach ($tag as $tag)
                      <tr>
-                        <td>{{$vaccine->id}}</td>
-                        <td>{{$vaccine->name}}</td>
-                        <td>{{$vaccine->form}}</td>
-                        <td>{{$vaccine->brand}}</td>
-                        <td>{{$vaccine->dosis}}</td>
-                        <td>{{$vaccine->caution}}</td>
+                        <td>{{$tag->id}}</td>
+                        <td>{{$tag->name}}</td>
+                        <td>{{$tag->description}}</td>
                         <td width="10px">
-                            <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.vaccines.edit', $vaccine)}}">Editar</a></td>
+                            <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.tags.edit', $tag)}}">Editar</a></td>
                         <td width="10px">
-                            <form action="{{route('admin.vaccines.destroy', $vaccine)}}" method="POST">
+                            <form action="{{route('admin.tags.destroy', $tag)}}" method="POST">
                                 @csrf
                                 @method('delete')
 
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar Medicamento?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
+                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                      </tr>

@@ -3,7 +3,7 @@
 @section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Editar Vacuna</h1>
+    <h1>Editar Etiqueta</h1>
 @stop
 
 @section('content')
@@ -18,13 +18,13 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($vaccine, ['route' => ['admin.vaccines.update', $vaccine], 'method' => 'put']) !!}
+            {!! Form::model($tag, ['route' => ['admin.tags.update', $tag], 'method' => 'put']) !!}
 
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
-                {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar la Categoria  ']) !!}
+                {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar la Etiqueta  ']) !!}
 
                 @error('name')
                     <span class="text-danger">{{$message}}</span>
@@ -41,40 +41,15 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('form', 'Form') !!}
-                {!! Form::text('form', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar ']) !!}
+                {!! Form::label('description', 'Descripcion') !!}
+                {!! Form::text('description', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar una descripcion']) !!}
 
-                @error('')
+                @error('description')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
-            <div class="form-group">
-                {!! Form::label('brand', 'Brand') !!}
-                {!! Form::text('brand', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar una descripcion']) !!}
-
-                @error('')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                {!! Form::label('dosis', 'Dosis') !!}
-                {!! Form::text('dosis', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar una descripcion']) !!}
-
-                @error('')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                {!! Form::label('caution', 'Caution') !!}
-                {!! Form::text('caution', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar una descripcion']) !!}
-
-                @error('')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-
-            {!! Form::submit('Actualizar Vacuna', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Actualizar Etiqueta', ['class' => 'btn btn-primary']) !!}
         </div>
     </div>
 @stop
@@ -85,7 +60,7 @@
 
 @section('js')
     
-    //Plugin para asignar automaticamente una Slug
+    //Plugin para asignar automaticamente una Slug a cada categoria
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
     </script>
 
