@@ -9,7 +9,12 @@ class PetType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug', 'description'];
+
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
 
     public function pets(){
         return $this->hasMany(Pet::class);

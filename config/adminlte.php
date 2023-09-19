@@ -338,6 +338,13 @@ return [
 
 
         ['header'         => 'Administrador'],
+
+        [
+            'text'        => 'Razas',
+            'route'       => 'admin.pettypes.index',
+            'icon'        => 'fas fa-solid fa-paw fa-fw',
+        ],
+
         [
             'text'        => 'Vacunas',
             'route'         => 'admin.vaccines.index',
@@ -346,15 +353,15 @@ return [
         ],
 
         [
-            'text'        => 'Categorias',
-            'route'       => 'admin.categories.index',
-            'icon'        => 'fas fa-solid fa-book fa-fw',
-        ],
-
-        [
             'text'        => 'Etiquetas',
             'route'       => 'admin.tags.index',
             'icon'        => 'fas fa-solid fa-hashtag fa-fw',
+        ],
+        
+        [
+            'text'        => 'Categorias',
+            'route'       => 'admin.categories.index',
+            'icon'        => 'fas fa-solid fa-book fa-fw',
         ],
 
 
