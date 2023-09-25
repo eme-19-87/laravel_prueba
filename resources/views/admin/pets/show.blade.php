@@ -1,14 +1,13 @@
 @extends('adminlte::page')
-@section('title', 'IdenMac')
+
+@section('title', 'Tempano')
 
 @section('content_header')
-    <a class="btn btn-primary btn-sm float-lg-right" href="{{route('admin.posts.create')}}">Nuevo</a>
-    <h1 class="bg-red-400">Estado del post</h1>
+    <h1>Detalle de Punto de Venta</h1>
 @stop
 
 @section('content')
 <p>Bienvenido a Administracion.</p>
-    @livewire('admin.posts-index')
 @stop
 
 @section('css')

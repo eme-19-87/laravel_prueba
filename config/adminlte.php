@@ -131,7 +131,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => '--bs-dark-bg-subtle',
+    'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => ' sidebar-danger elevation-4',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -357,7 +357,7 @@ return [
             'route'       => 'admin.tags.index',
             'icon'        => 'fas fa-solid fa-hashtag fa-fw',
         ],
-        
+
         [
             'text'        => 'Categorias',
             'route'       => 'admin.categories.index',
@@ -367,58 +367,29 @@ return [
 
         ['header' => 'Mis Mascotas'],
         [
-            'text'        => 'Rocco',
-            'icon_color'  => 'red',
-            'url'         => '#',
-        ],
-
-        [
-            'text'        => 'Caca',
-            'icon_color'  => 'yellow',
-            'url'         => '#',
-        ],
-
-        [
-            'text'        => 'Negro',
-            'icon_color'  => 'cyan',
-            'url'         => '#',
+            'text'        => 'Mascotas',
+            'route'       => 'admin.pets.index',
+            'icon'        => 'fas fa-solid fa-dog fa-fw',
         ],
 
 
         ['header' => 'Configuracion de Cuentas'],
         [
             'text' => 'Perfil',
-            'url'  => 'admin.users.index',
+            'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-user fa-fw',
         ],
 
         [
-            'text' => 'Configuracion de Usuario',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock fa-fw',
+            'text' => 'Configuracion',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-solid fa-wrench fa-fw',
         ],
         
         [
-            'text'    => 'Roles',
-            'icon'    => 'fas fa-fw fa-share fa-fw',
-            'submenu' => [
-                [
-                    'text' => 'Administrador',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Creador',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Lector',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Veterinario',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'Roles',
+            'route'  => 'admin.users.index',
+            'icon'  => 'fas fa-users fa-fw',
         ],
     ],
 

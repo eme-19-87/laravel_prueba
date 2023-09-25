@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="text-white btn btn-primary" href="{{route('admin.pettypes.create')}}">Agregar Raza</a>
+            <a class="text-white btn btn-primary" href="{{route('admin.pettypes.create')}}">Nuevo</a>
         </div>
         @if (session('info'))
         <div class="alert alert-success">

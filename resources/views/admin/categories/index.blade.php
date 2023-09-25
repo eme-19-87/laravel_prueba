@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a class="text-white btn btn-primary" href="{{route('admin.categories.create')}}">Agregar Categorias</a>
+            <a class="text-white btn btn-primary" href="{{route('admin.categories.create')}}">Nuevo</a>
         </div>
         @if (session('info'))
         <div class="alert alert-success">
