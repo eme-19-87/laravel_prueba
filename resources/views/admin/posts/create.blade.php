@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-@section('title', 'Tempano')
+@section('title', 'Iden MAC')
 
 @section('content_header')
-    <h1>Hielos TEMPANO</h1>
+    <h1>Iden Mac</h1>
 @stop
 
 @section('content')
@@ -76,9 +76,9 @@
                @enderror
             </div>
 
-            <p class="font-weight-bold mb-1">Extracto:</p>
+           {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
             <div class="form-group">
-              {!! Form::label('extract') !!}
+              {!! Form::label('extract:') !!}
               {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
 
               @error('extract')
@@ -88,9 +88,9 @@
 
             
 
-            <p class="font-weight-bold mt-4">Body:</p>
+            {{-- <p class="font-weight-bold mt-4">Body:</p> --}}
             <div class="mt-4 form-group">
-              {!! Form::label('body') !!}
+              {!! Form::label('body:') !!}
               {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 
               @error('body')
@@ -100,7 +100,7 @@
 
             
 
-             {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn bg-blue-600'])!!}
+             {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary'])!!}
              {!! Form::close() !!}
         </div>
     </div>
@@ -112,7 +112,7 @@
 
 @section('js')
      {{-- CKEditor --}}
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script> --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
 
     {{-- Plugin para asignar automaticamente una Slug a cada categoria --}}
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
@@ -129,7 +129,7 @@
         });
 
         /*  ClassicEditor
-          .create( document.querySelector( '#editor' ) )
+          .create( document.querySelector( '#extract' ) )
           .catch( error => {
             console.error( error );
         } );

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->integer('age');
             $table->string('gender', '20');
             $table->string('features');
-            $table->string('color');
             $table->string('city', '140');
             $table->unsignedBigInteger('user_id');
 

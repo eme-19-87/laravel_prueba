@@ -12,6 +12,8 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.pets.store']) !!}
 
+            {!! Form::hidden('user_id', auth()->user()->id) !!}
+
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
             <div class="form-group">
@@ -77,14 +79,6 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                {!! Form::label('user_id', 'Usuario') !!}
-                {!! Form::select('user_id',$user, NULL, ['class' => 'form-control', 'placeholder' => 'User']) !!}
-
-                @error('user_id')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
 
             {!! Form::submit('Almacenar', ['class' => 'btn btn-primary']) !!}
         </div>

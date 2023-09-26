@@ -14,13 +14,7 @@
           <span class="ml-3 text-xl">IdenMAC</span>
         </a>
         <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log In
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
-          {{-- Perfil --}}
-        @auth
+          @auth
         <div id="z" class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <div class="relative ml-3" x-data="{ open: false }">
             <div>
@@ -38,10 +32,18 @@
           </div>
         </div>
          @else
-          <div class="mt-5">
-            <a href="{{ route('login') }}" class=" text-gray-300 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SoyUsuario</a>
-            <a href="{{ route('register') }}" class="text-gray-300 hover:bg-blue-500 hover:text-white px-3  py-2 rounded-md text-sm font-medium">Registrarme</a>
-          </div>
+         <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+          <a href="{{ route('login') }}" class=" text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Iniciar sesion</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+        <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+          <a href="{{ route('register') }}" class="text-gray-800 px-3  py-2 rounded-md text-sm font-medium">Registrarme</a>
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
       @endauth
         </div>
       </div>

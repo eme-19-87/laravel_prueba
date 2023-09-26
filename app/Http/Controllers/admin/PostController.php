@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Tag;
 use App\Http\Requests\StorePostRequest;
+use App\Models\Tags;
 
 class PostController extends Controller
 {
@@ -35,9 +35,9 @@ class PostController extends Controller
     {
         $categories = Category::pluck('name', 'id');
 
-       /*  $tags = Tag::all(); */
+        $tags = Tags::all();
 
-        return view ('admin.posts.create', compact('posts'));
+        return view ('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**

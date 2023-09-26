@@ -12,9 +12,12 @@
       <div class="text-center">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Bienvenidos a Iden MAC</h1>
         <p class="mt-6 text-lg leading-8 text-gray-600">Somos una APP dedicada a concientizar sobre el maltrato animal</p>
+
+        @if (Auth::check())
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <a href="/admin" class="text-sm font-semibold leading-6 text-gray-900">Ir al Sistema<span aria-hidden="true">→</span></a>
         </div>
+        @endif
       </div>
     </div>
     <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
