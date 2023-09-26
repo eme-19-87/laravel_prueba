@@ -19,6 +19,30 @@
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
           </button>
+          {{-- Perfil --}}
+        @auth
+        <div id="z" class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div class="relative ml-3" x-data="{ open: false }">
+            <div>
+              <button x-on:click="open = true" type="button" class="flex rounded-full bg-gray-800 text-sm  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
+              </button>
+            </div>
+            <div x-show="open" x-on:click.away="open = false" class="absolute right-0 zIndex-[1000] mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+             
+              <form method="POST" action="{{ route('logout') }}" x-data>
+                @csrf            
+                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">Cerrar Sesion</a>
+              </form>
+            </div>
+          </div>
+        </div>
+         @else
+          <div class="mt-5">
+            <a href="{{ route('login') }}" class=" text-gray-300 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SoyUsuario</a>
+            <a href="{{ route('register') }}" class="text-gray-300 hover:bg-blue-500 hover:text-white px-3  py-2 rounded-md text-sm font-medium">Registrarme</a>
+          </div>
+      @endauth
         </div>
       </div>
     </nav>

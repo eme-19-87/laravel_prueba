@@ -3,8 +3,8 @@
     <main class="py-6 px-4 sm:p-6 md:py-10 md:px-8">
         <div class="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
             <div class="relative p-3 col-start-1 row-start-1 flex flex-col-reverse rounded-lg bg-gradient-to-t from-black/75 via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
-                <h1 class="mt-1 text-lg font-semibold text-black sm:text-slate-900 md:text-2xl dark:sm:text-black">{{$post->title}}</h1>
-                <p class="text-sm leading-4 font-medium text-white sm:text-slate-500 dark:sm:text-slate-400">@foreach ($post->tags as $tag)
+                <h1 class="mt-1 text-lg font-semibold text-black sm:text-slate-900 md:text-2xl">{{$post->title}}</h1>
+                <p class="text-sm leading-4 font-medium text-white sm:text-slate-500">@foreach ($post->tags as $tag)
                    <a href="" class="inline-block px-3 h-6 bg-sky-600 text-white rounded-full">{{$tag->name}}</a>
                    @endforeach
                 </p>
@@ -16,8 +16,8 @@
             </div>
             <dl class="mt-4 text-xs font-medium flex items-center row-start-2 sm:mt-1 sm:row-start-3 md:mt-2.5 lg:row-start-2">
             <dt class="sr-only">Reviews</dt>
-            <dd class="text-indigo-600 flex items-center dark:text-indigo-400">
-              <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current dark:stroke-indigo-500">
+            <dd class="text-indigo-600 flex items-center">
+              <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-1 stroke-current">
                 <path d="m12 5 2 5h5l-4 4 2.103 5L12 16l-5.103 3L9 14l-4-4h5l2-5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <span>4.89 <span class="text-slate-400 font-normal">(60)</span></span>
@@ -38,9 +38,9 @@
           <div class="mt-4 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
             <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white text-sm leading-6 font-medium py-2 px-3 rounded-lg">Solicitar Combo</button>
           </div>
-          <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1 dark:text-slate-400">
+          <p class="mt-4 text-sm leading-6 col-start-1 sm:col-span-2 lg:mt-6 lg:row-start-4 lg:col-span-1">
            {{$post->extract}}
-           <p class=" text-sm lg:col-span-1 lg:row-start-4  dark:text-slate-400">
+           <p class=" text-sm lg:col-span-1 lg:row-start-4 ">
             {{$post->body}}
           </p>
         </div>
