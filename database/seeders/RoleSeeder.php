@@ -15,17 +15,17 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-       $Role1=Role::create(['name' => 'admin']);
-       $Role2=Role::create(['name' => 'client']);
+       $Role1 = Role::create(['name' => 'admin']);
+       $Role2 = Role::create(['name' => 'writer']);
 
        Permission::create(['name' => 'admin'])->syncRoles([$Role1,$Role2]);
-       Permission::create(['name' => 'admin.pointsales.index'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.pointsales.edit'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.pointsales.create'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.pointsales.destroy'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.tags.index'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.vaccines.index'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.vaccines.edit'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.vaccines.create'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.vaccines.destroy'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.users.index'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.users.edit'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.tags.index'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.tags.create'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.tags.edit'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.tags.destroy'])->syncRoles([$Role1]);
@@ -37,16 +37,14 @@ class RoleSeeder extends Seeder
        Permission::create(['name' => 'admin.categories.create'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$Role1]);
        Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.products.index'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.products.create'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.products.edit'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.products.destroy'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.fridges.index'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.fridges.create'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.fridges.edit'])->syncRoles([$Role1]);
-       Permission::create(['name' => 'admin.fridges.destroy'])->syncRoles([$Role1]);
-       
-
+       Permission::create(['name' => 'admin.pets.index'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pets.create'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pets.edit'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pets.destroy'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pettypes.index'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pettypes.create'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pettypes.edit'])->syncRoles([$Role1]);
+       Permission::create(['name' => 'admin.pettypes.destroy'])->syncRoles([$Role1]);
 
     }
 }
