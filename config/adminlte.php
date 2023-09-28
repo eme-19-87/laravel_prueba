@@ -376,18 +376,18 @@ return [
         ['header' => 'Configuracion de Cuentas'],
         [
             'text' => 'Perfil',
-            'route'  => 'admin.users.index',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-user fa-fw',
         ],
 
         [
             'text' => 'Configuracion',
-            'route'  => 'admin.users.index',
+            'url'  => '#',
             'icon' => 'fas fa-solid fa-wrench fa-fw',
         ],
         
         [
-            'text' => 'Roles',
+            'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon'  => 'fas fa-users fa-fw',
         ],

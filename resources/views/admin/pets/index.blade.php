@@ -37,7 +37,7 @@
 
                 <tbody>
 
-                 @foreach ($pets as $pet)
+                 @foreach ($pet as $pet)
                      <tr>
                         <td>{{$pet->id}}</td>
                         <td>{{$pet->name}}</td>

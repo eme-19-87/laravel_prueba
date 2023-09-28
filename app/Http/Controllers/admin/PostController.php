@@ -51,10 +51,6 @@ class PostController extends Controller
         
        $post = Post::create($request->all());
 
-       if ($request->tags) {
-        $post->tags()->attach($request->tags);
-       }
-
        return redirect()->route('admin.posts.index', $post);
     }
 
@@ -100,6 +96,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('admin.posts.index')->with('info', 'El Post se elimino con exito');
     }
 }

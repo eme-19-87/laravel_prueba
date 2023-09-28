@@ -5,6 +5,13 @@
 
     @if ($posts->count())
     <div class="card-body">
+        @if (session('info'))
+        <div class="alert alert-success">
+            <strong>
+                {{session('info')}}
+            </strong>
+        </div>
+    @endif
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -13,6 +20,7 @@
                     <th colspan="2"></th>
                 </tr>
     
+
             </thead>
             <tbody>
                 @foreach ($posts as $post)

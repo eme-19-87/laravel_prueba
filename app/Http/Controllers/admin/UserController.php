@@ -8,20 +8,20 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
-    public function __construct(){
+    /* public function __construct(){
         $this->middleware('can:admin.users.index')->only('index');
         $this->middleware('can:admin.users.edit')->only('edit', 'update');
-    }
+    } */
    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $users)
     {
+        $users = User::all();
 
-        
-        return view('admin.users.index');
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('admin.users.show', compact('user'));
+        return view('admin.users.show', compact('users'));
     }
 
     /**
@@ -85,11 +85,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        
-
-        { $user->roles()->sync($request->roles);
-            return redirect()->route('admin.users.edit', $user)->with('info','Se asigno los roles correctamente');
-          }
+         $user->roles()->sync($request->roles);
+            return redirect()->route('admin.users.edit', $user)->with('info','Se asigno el role correctamente');     
     }
     
     
@@ -104,6 +101,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.fridges.edit', $user)->with('info', 'La heladera se Elimino con exito');
+        return redirect()->route('admin.users.index', $user)->with('info', 'El Usuario se Elimino con exito');
     }
 }
