@@ -18,7 +18,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($pet_type, ['route' => ['admin.pettypes.update', $pet_type], 'method' => 'put']) !!}
+            {!! Form::model($pettype, ['route' => ['admin.pettypes.update', $pettype], 'method' => 'put']) !!}
 
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
@@ -59,8 +59,7 @@
 @stop
 
 @section('js')
-    
-    //Plugin para asignar automaticamente una Slug a cada categoria
+
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
     </script>
 

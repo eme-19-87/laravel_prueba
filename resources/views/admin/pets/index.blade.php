@@ -37,7 +37,7 @@
 
                 <tbody>
 
-                 @foreach ($pet as $pet)
+                 @foreach ($pets as $pet)
                      <tr>
                         <td>{{$pet->id}}</td>
                         <td>{{$pet->name}}</td>
@@ -50,7 +50,7 @@
                         <td>{{$pet->user_id}}</td>
                         <td width="10px">
                             <a  class="text-white rounded-lg btn bg-blue-600" href="{{route('admin.pets.edit', $pet)}}">Editar</a></td>
-                       
+
                             <td width="10px">
                             <form action="{{route('admin.pets.destroy', $pet)}}" method="POST">
                                 @csrf

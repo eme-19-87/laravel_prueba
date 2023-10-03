@@ -7,11 +7,11 @@
           <a href="/blog" class="mr-5 hover:text-gray-900">Blog</a>
           <a href="/contact" class="hover:text-gray-900">Contactanos</a>
         </nav>
-        <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+        <a href="/" class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
           {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg> --}}
-          <span class="ml-3 text-xl">IdenMAC</span>
+          <h1 class="ml-3 text-xl cursor-pointer">IdenMAC</h1>
         </a>
         <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
           @auth
@@ -22,11 +22,19 @@
                 <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
               </button>
             </div>
-            <div x-show="open" x-on:click.away="open = false" class="absolute right-0 zIndex-[1000] mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-             
+            <div x-show="open" x-on:click.away="open = false" class="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+
+              <form method="GET" action="{{ route('index') }}" x-data>
+                @csrf
+                <a href="{{ route('index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
+                  Panel de Administrador
+                </a>
+              </form>
               <form method="POST" action="{{ route('logout') }}" x-data>
-                @csrf            
-                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">Cerrar Sesion</a>
+                @csrf
+                <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
+                  Cerrar Sesion
+                </a>
               </form>
             </div>
           </div>

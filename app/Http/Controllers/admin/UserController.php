@@ -49,7 +49,7 @@ class UserController extends Controller
         ]);
 
         $user = User::create($request->all());
-        
+
         return redirect()->route('admin.users.edit', $user)->with('info', 'La Heladera se almaceno con exito');
     }
 
@@ -72,7 +72,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        /* $roles= Role::all(); */
+        $roles= Role::all();
         return view('admin.users.edit', compact('user','roles'));
     }
 
@@ -86,11 +86,11 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
          $user->roles()->sync($request->roles);
-            return redirect()->route('admin.users.edit', $user)->with('info','Se asigno el role correctamente');     
+        return redirect()->route('admin.users.edit', $user)->with('info','Se asigno el role correctamente');
     }
-    
-    
-    
+
+
+
 
     /**
      * Remove the specified resource from storage.

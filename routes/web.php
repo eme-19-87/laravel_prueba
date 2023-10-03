@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,8 @@ Route::get('/contact', function () {
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show'); /* Vista de Cada Post */
 
-
+Route::get('/pets',[PetController::class,'index']);
+Route::get('/pets/{pet}',[PetController::class,'show']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
