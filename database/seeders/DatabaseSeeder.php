@@ -22,10 +22,12 @@ class DatabaseSeeder extends Seeder
         
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-       /*  $this->call(AddressSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(ImageSeeder::class);
         $this->call(PostSeeder::class);
+       /*  $this->call(AddressSeeder::class);
+       
+        $this->call(ImageSeeder::class);
+       
         $this->call(CommentSeeder::class);
         $this->call(PetTypeSeeder::class);
         $this->call(PetSeeder::class); */
