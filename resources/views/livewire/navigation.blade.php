@@ -1,10 +1,10 @@
-<div>
-  <nav class="text-gray-600 z-10 body-font">
-      <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+<div class="bg-gray-200">
+  <nav class="text-gray-600 bg-gray-100 z-10 body-font">
+      <div class="container fixed z-50 mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
           <a href="/" class="mr-5 hover:text-gray-900">Inicio</a>
           <a href="/about" class="mr-5 hover:text-gray-900">Nosotros</a>
-          <a href="/blog" class="mr-5 hover:text-gray-900">Blog</a>
+          <a href="/posts" class="mr-5 hover:text-gray-900">Posts</a>
           <a href="/contact" class="hover:text-gray-900">Contactanos</a>
         </nav>
         <a href="/" class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
@@ -40,13 +40,13 @@
           </div>
         </div>
          @else
-         <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+         <button class="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
           <a href="{{ route('login') }}" class=" text-gray-800 px-3 py-2 rounded-md text-sm font-medium">Iniciar sesion</a>
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </button>
-        <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+        <button class="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
           <a href="{{ route('register') }}" class="text-gray-800 px-3  py-2 rounded-md text-sm font-medium">Registrarme</a>
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
