@@ -18,17 +18,16 @@
     <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
         <div class="lg:pr-4">
             <div class="lg:max-w-lg">
-                <div class="flex items-center mt-6">
-                  <img class="object-cover object-center w-10 h-10 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
-
-                  <div class="mx-4">
-                      <h1 class="text-sm text-gray-700 dark:text-gray-200">User: {{$post->user->name}}</h1>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">rol</p>
-                  </div>
-                </div>
                 <p class="text-base font-semibold leading-7 text-indigo-600">{{$post->category->name}}</p>
-              <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{$post->title}}</h1>
+              <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{$post->title}}</h1>       
               <p class="mt-6 text-md leading-8 text-gray-500">{{$post->extract}}</p>
+              <div class="flex items-center mt-6 mb-10">
+                <img class="object-cover object-center w-10 h-10 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="">
+                <div class="mx-4">
+                    <h1 class="text-sm text-black"> {{$post->user->name}}</h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">rol</p>
+                </div>
+              </div>
               <p class="mt-4 text-xl text-black">{{$post->body}}</p>
             </div>
           </div>
