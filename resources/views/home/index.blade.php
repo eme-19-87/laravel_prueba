@@ -1,5 +1,5 @@
 <x-app-layout>
-  <div class="relative h-full pt-14 lg:px-8">
+  <div class="relative h-screen grid place-items-center pt-14 lg:px-8">
 
     <div class="mx-auto max-w-2xl py-32 sm:py-48 xl:py-24  2xl:py-56">
       <div class="absolute inset-0 -z-10 overflow-hidden">

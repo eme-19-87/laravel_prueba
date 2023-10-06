@@ -1,6 +1,6 @@
-<div class="bg-gray-200">
-  <nav class="text-gray-600 bg-gray-100 z-10 body-font">
-      <div class="container fixed z-50 mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+<div class="w-full fixed bg-gradient-to-b from-gray-300 from-70% z-50">
+    <nav class="text-gray-600 body-font">
+      <div class="container  mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
           <a href="/" class="mr-5 hover:text-gray-900">Inicio</a>
           <a href="/about" class="mr-5 hover:text-gray-900">Nosotros</a>

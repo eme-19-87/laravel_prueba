@@ -13,45 +13,37 @@
                     </div>
                 </div>
                 <div class="mt-20 text-center">
-                    <h3 class="mb-1 text-2xl font-bold leading-normal text-black">Lolito Cachas</h3>
+                    <h3 class="mb-1 text-2xl font-bold leading-normal text-black">{{$pet->name}}</h3>
                     <div class="flex flex-row justify-center w-full mx-auto space-x-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
                         </svg>
-                        <div class="font-bold tracking-wide text-black font-sans text-xl">Corrientes, Argentina</div>
+                        <div class="font-bold tracking-wide text-black font-sans text-xl">{{$pet->city}}, Argentina</div>
                     </div>
                     <div class="flex mt-1 flex-row justify-center w-full mx-auto space-x-2 text-center">
-                        <div class=" font-bold tracking-wide text-black font-sans text-xl">Pitbull, No binario, <br>14 Años</div>
+                        <div class=" font-bold tracking-wide text-black font-sans text-xl">{{$pet->pet_type->name}}, {{$pet->gender}}, <br>{{$pet->age}} Años</div>
                     </div>
                 </div>
                 <div class="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full px-6">
-                            <p class="mb-4 font-light leading-relaxed text-black">
-                               Descripcion: chico negro y peludo como este
+                            <p class="font-light leading-relaxed text-black">
+                               Descripcion: {{$pet->features}}
                             </p>
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-center">
                         <div class="w-full px-6">
                             <p class="mb-4 font-light leading-relaxed text-bl">
-                               Breed:
+                               Crias: {{$pet->breed}}
                             </p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap justify-center">
-                        <div class="w-full px-6">
-                            <button>
-                                <a href="" class="mb-4 font-light leading-relaxed text-black hover:bg-gray-800">Ver Registro medico</a>
-                            </button>
-
                         </div>
                     </div>
                 </div>
                 <div class="w-full text-center">
                     <div class="flex justify-center pt-8 pb-0 lg:pt-4">
-                        <a href="" class="text-black">Armando Paredes del Castillo
-                            <br> Numero: 3794473439
+                        <a href="" class="text-black">{{$pet->user->name}}
+                            <br> Email: {{$pet->user->email}}
                         </a>
                     </div>
                 </div>

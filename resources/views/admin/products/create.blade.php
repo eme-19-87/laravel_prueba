@@ -10,8 +10,8 @@
 <p>Bienvenido a Administracion.</p>
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.products.store']) !!}
-
+            {!! Form::open(['route' => 'admin.proucts.store']) !!}
+d
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
             <div class="form-group">
@@ -59,7 +59,7 @@
                     </div>
                     <input id="image" name="image" accept="image/*" type="file">
                 </label>
-            </div> 
+            </div>
 
             <div>
                 @error('image')
@@ -73,8 +73,7 @@
 @stop
 
 {{-- @section('js')
-    
-    //Plugin para asignar automaticamente una Slug a cada categoria
+
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
     </script>
 
