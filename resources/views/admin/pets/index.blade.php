@@ -24,7 +24,7 @@
                 <thead>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>breed</th>
+                    <th>Tipo de Mascota</th>
                     <th>Edad</th>
                     <th>Genero</th>
                     <th>Caracteristicas</th>
@@ -41,13 +41,13 @@
                      <tr>
                         <td>{{$pet->id}}</td>
                         <td>{{$pet->name}}</td>
-                        <td>{{$pet->breed}}</td>
+                        <td>{{$pet->pet_type->name}}</td>
                         <td>{{$pet->age}}</td>
                         <td>{{$pet->gender}}</td>
                         <td>{{$pet->features}}</td>
                         <td>{{$pet->city}}</td>
-                        <td>{{$pet->pet_type_id}}</td>
-                        <td>{{$pet->user_id}}</td>
+                        <td>{{$pet->breed}}</td>
+                        <td>{{$pet->user->name}}</td>
                         <td width="10px">
                             <a  class="text-white rounded-lg btn bg-blue-600" href="{{route('admin.pets.edit', $pet)}}">Editar</a></td>
 

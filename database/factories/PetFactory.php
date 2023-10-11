@@ -23,9 +23,7 @@ class PetFactory extends Factory
             'age'=>rand(1, 20),
             'gender'=>$gender[rand(1, 2)-1],
             'features'=>fake()->words(3, true),
-            'color'=>fake()->word(),
             'city'=>fake()->city(),
-            'allergies'=>fake()->text(),
             // 'veterinarian'=>'null'
         ];
     }
