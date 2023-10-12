@@ -39,14 +39,12 @@
                         <td width="10px">
                             <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.pettypes.edit', $pet_type)}}">Editar</a></td>
                         <td width="10px">
-                            <form action="{{route('admin.pettypes.destroy', $pet_type)}}" method="POST">
-                                @csrf
-                                @method('delete')
-
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
-                            </form>
+                            <button type="button" class="text-white btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-{{$pet_type->id}}">
+                                Eliminar
+                            </button>
                         </td>
                      </tr>
+                     @include('admin.pettypes.delete')
                  @endforeach
 
                 </tbody>
