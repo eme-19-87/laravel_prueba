@@ -26,8 +26,16 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('breed', 'Cria') !!}
-                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'Cria']) !!}
+                {!! Form::label('pet_type', 'Tipo de Mascota') !!}
+                {!! Form::select('pet_type',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Seleccionar']) !!}
+
+                @error('pet_type')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                {!! Form::label('breed', 'Raza') !!}
+                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
 
                 @error('breed')
                     <span class="text-danger">{{$message}}</span>
@@ -70,14 +78,8 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                {!! Form::label('pet_type_id', 'Raza') !!}
-                {!! Form::select('pet_type_id',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
-
-                @error('pet_type_id')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            
+            
 
 
             {!! Form::submit('Almacenar', ['class' => 'btn btn-primary']) !!}
