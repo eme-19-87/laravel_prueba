@@ -48,7 +48,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        
+
        $post = Post::create($request->all());
 
        return redirect()->route('admin.posts.index', $post);
@@ -73,7 +73,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view ('admin.posts.edit', compact('post'));
+        $categories = Category::pluck('name', 'id');
+
+        $tags = Tags::all();
+        return view ('admin.posts.edit', compact('post','categories','tags'));
     }
 
     /**
@@ -85,7 +88,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect()->route('admin.posts.edit', $post)->with('info', 'La Etiqueta se actualizo con exito');
     }
 
     /**

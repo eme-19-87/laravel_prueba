@@ -39,14 +39,12 @@
                         <td width="10px">
                             <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.categories.edit', $category)}}">Editar</a></td>
                         <td width="10px">
-                            <form action="{{route('admin.categories.destroy', $category)}}" method="POST">
-                                @csrf
-                                @method('delete')
-
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
-                            </form>
+                            <button type="button" class="text-white btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-{{$category->id}}">
+                                Eliminar
+                            </button>
                         </td>
                      </tr>
+                     @include('admin.categories.delete')
                  @endforeach
 
                 </tbody>

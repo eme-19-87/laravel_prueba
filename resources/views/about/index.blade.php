@@ -3,7 +3,7 @@
     <div class="container px-5 py-24 mx-auto">
         <div class="text-center mb-20">
         <h2 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Sobre Nosotros</h2>
-        <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Conocenos mas amsanskjanksj</p>
+        <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Conocenos mas</p>
         <div class="flex mt-6 justify-center">
           <div class="w-16 h-1 rounded-full bg-purple-500 inline-flex"></div>
         </div>
@@ -18,7 +18,7 @@
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Concientizacion</h2>
             <p class="leading-relaxed text-base">Creamos Campañas que ayuden a generar conciencia sobre el maltrato animal, juntos podemos generar impacto y cambiar la manera de verlo</p>
-            <a class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
+            <a href="/blog" class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -53,7 +53,7 @@
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Apoyo y asesoria</h2>
             <p class="leading-relaxed text-base">Tenemos el apoyo de veterinarias y refugios para la ubicacion y cuidado de animales rescatados, tambien te aconsejamos sobre los cuidados que tu mascota se merece</p>
-            <a class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
+            <a href="/contact" class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
               </svg>
@@ -64,5 +64,5 @@
       <button class="flex mx-auto mt-16 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Contactar</button>
     </div>
   </section>
-  
+
 </x-app-layout>

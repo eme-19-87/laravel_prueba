@@ -9,10 +9,10 @@
 <p>Bienvenido a Administracion.</p>
 <div class="card">
     <div class="card-body">
-        {!! Form::open(['route' => 'admin.posts.update', 'autocomplete' => 'off']) !!}
+        {!! Form::model($post,['route' => ['admin.posts.update',$post],'method' => 'put']) !!}
 
         {!! Form::hidden('user_id', auth()->user()->id) !!}
-        
+
         <div class="form-group">
             {!! Form::label('title', 'Nombre:') !!}
             {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
@@ -65,7 +65,7 @@
                 {!! Form::radio('status', 1, true) !!}
                 Borrador
             </label>
-           
+
             <label>
                 {!! Form::radio('status', 2) !!}
                 Publicado
@@ -86,7 +86,7 @@
         @enderror
         </div>
 
-        
+
 
         {{-- <p class="font-weight-bold mt-4">Body:</p> --}}
         <div class="mt-4 form-group">
@@ -98,7 +98,7 @@
         @enderror
         </div>
 
-        
+
 
          {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary'])!!}
          {!! Form::close() !!}

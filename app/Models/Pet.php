@@ -10,7 +10,7 @@ class Pet extends Model
     use HasFactory;
     protected $guarded = ['id','timestamps'];
 
-    public function pettypes(){
+    public function pet_type(){
         return $this->belongsTo(PetType::class);
     }
 
@@ -22,7 +22,7 @@ class Pet extends Model
         return $this->hasMany(PetsHasVaccines::class);
     }
 
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

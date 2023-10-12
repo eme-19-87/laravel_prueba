@@ -15,11 +15,34 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $names = ['noticia', 'urgencia', 'anuncio', 'info'];
-        for ($i=0; $i < 4; $i++) {
-            Category::create([
-                'name'=>$names[$i]
-            ]);
-        }
+        Category::create([
+            'name'  =>  'Cuidado',
+            'slug'  =>  'cuidado',
+            'description'  =>  'Cuidado sobre las mascotas y tips'
+        ]);
+
+        Category::create([
+            'name'  =>  'Mascota perdida',
+            'slug'  =>  'mascotas-perdidas',
+            'description'  =>  'Anuncios de mascotas perdidas'
+        ]);
+
+        Category::create([
+            'name'  =>  'Felices Fiestas',
+            'slug'  =>  'felices-fiestas',
+            'description'  =>  'Tempano les desea Muy Felices Fiestas'
+        ]);
+
+        Category::create([
+            'name'  =>  'Eventos y actividades',
+            'slug'  =>  'eventos-y-actividades',
+            'description'  =>  'actividades organizadas por administradores y patrocinadores'
+        ]);
+
+        Category::create([
+            'name'  =>  'Tips',
+            'slug'  =>  'tips',
+            'description'  =>  'tips'
+        ]);
     }
 }

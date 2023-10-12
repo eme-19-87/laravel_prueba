@@ -38,15 +38,13 @@
                         <td>{{$tag->description}}</td>
                         <td width="10px">
                             <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.tags.edit', $tag)}}">Editar</a></td>
-                        <td width="10px">
-                            <form action="{{route('admin.tags.destroy', $tag)}}" method="POST">
-                                @csrf
-                                @method('delete')
-
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar el Producto?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
-                            </form>
-                        </td>
-                     </tr>
+                            <td width="10px">
+                                <button type="button" class="text-white btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-{{$tag->id}}">
+                                    Eliminar
+                                </button>
+                            </td>
+                         </tr>
+                        @include('admin.tags.delete')
                  @endforeach
 
                 </tbody>

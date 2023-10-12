@@ -24,7 +24,7 @@
                 <thead>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>breed</th>
+                    <th>Tipo de Mascota</th>
                     <th>Edad</th>
                     <th>Genero</th>
                     <th>Caracteristicas</th>
@@ -37,26 +37,26 @@
 
                 <tbody>
 
-                 @foreach ($pet as $pet)
+                 @foreach ($pets as $pet)
                      <tr>
                         <td>{{$pet->id}}</td>
                         <td>{{$pet->name}}</td>
-                        <td>{{$pet->breed}}</td>
+                        <td>{{$pet->pet_type->name}}</td>
                         <td>{{$pet->age}}</td>
                         <td>{{$pet->gender}}</td>
                         <td>{{$pet->features}}</td>
                         <td>{{$pet->city}}</td>
-                        <td>{{$pet->pet_type_id}}</td>
-                        <td>{{$pet->user_id}}</td>
+                        <td>{{$pet->breed}}</td>
+                        <td><a href="{{route('admin.users.edit', ['user'=>$pet->user->id])}}">{{$pet->user->name}}</a></td>
                         <td width="10px">
-                            <a  class="text-white rounded-lg btn bg-blue-600" href="{{route('admin.pets.edit', $pet)}}">Editar</a></td>
-                       
+                            <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.pets.edit', $pet)}}">Editar</a></td>
+
                             <td width="10px">
                             <form action="{{route('admin.pets.destroy', $pet)}}" method="POST">
                                 @csrf
                                 @method('delete')
 
-                                <button type="submit" onclick="return confirm('¿Quiere Eliminar mascota?')" class="text-white rounded-lg btn bg-red-600">Eliminar</button>
+                                <button type="submit" onclick="return confirm('¿Quiere Eliminar mascota?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                      </tr>

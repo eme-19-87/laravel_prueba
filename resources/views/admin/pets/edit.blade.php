@@ -38,6 +38,14 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
+            <div class="form-group">
+                {!! Form::label('pet_type_id', 'Raza') !!}
+                {!! Form::select('pet_type_id',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
+
+                @error('pet_type_id')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
 
             <div class="form-group">
                 {!! Form::label('age', 'Edad') !!}
@@ -75,14 +83,7 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                {!! Form::label('pet_type_id', 'Raza') !!}
-                {!! Form::select('pet_type_id',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
-
-                @error('pet_type_id')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            
 
             <div class="form-group">
                 {!! Form::label('user_id', 'Usuario') !!}

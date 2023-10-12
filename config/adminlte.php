@@ -211,9 +211,9 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
-    'sidebar_collapse_auto_size' => false,
-    'sidebar_collapse_remember' => false,
+    'sidebar_collapse' => true,
+    'sidebar_collapse_auto_size' => true,
+    'sidebar_collapse_remember' => true,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
@@ -302,10 +302,7 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'Buscar',
-        ],
+
         [
             'text'        => 'blog',
             'url'         => 'admin/blog',
@@ -318,13 +315,13 @@ return [
              'text'       => 'Inicio',
              'url'        => 'admin',
              'icon'       => 'fa fa-solid fa-house-user fa-fw',
-             
+
         ],
         [
             'text'        => 'Volver a Pagina Web',
             'url'         => '/',
             'icon'        => 'fa fa-solid fa-reply fa-fw',
-            
+
        ],
 
 
@@ -333,7 +330,7 @@ return [
             'text'        => 'Posts',
             'route'       => 'admin.posts.index',
             'icon'        => 'fas fa-solid fa-newspaper fa-fw',
-            
+
         ],
 
 
@@ -349,7 +346,7 @@ return [
             'text'        => 'Vacunas',
             'route'         => 'admin.vaccines.index',
             'icon'        => 'fas fa-solid fa-syringe fa-fw',
-       
+
         ],
 
         [
@@ -385,7 +382,7 @@ return [
             'url'  => '#',
             'icon' => 'fas fa-solid fa-wrench fa-fw',
         ],
-        
+
         [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +28,7 @@ Route::get('/about', function () {
     return view('about.index');
 });
 
-Route::get('/blog', function () {
-    return view('blog.index');
-});
+
 
 Route::get('/contact', function () {
     return view('contact.index');
@@ -39,7 +39,8 @@ Route::get('/contact', function () {
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show'); /* Vista de Cada Post */
 
-
+Route::get('/pets',[PetController::class,'index']);
+Route::get('/pets/{pet}',[PetController::class,'show']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

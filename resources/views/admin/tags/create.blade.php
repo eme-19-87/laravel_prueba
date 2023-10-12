@@ -47,8 +47,8 @@
 @stop
 
 @section('js')
-    
-    //Plugin para asignar automaticamente una Slug
+
+
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
     </script>
 
