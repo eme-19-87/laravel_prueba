@@ -41,9 +41,9 @@
                      <tr>
                         <td>{{$pet->id}}</td>
                         <td>{{$pet->name}}</td>
-                        <td>{{$pet->pet_type->name}}</td>
+                        <td>{{ucfirst(__($pet->pet_type->name))}}</td>
                         <td>{{$pet->age}}</td>
-                        <td>{{$pet->gender}}</td>
+                        <td>{{ucfirst(__($pet->gender))}}</td>
                         <td>{{$pet->features}}</td>
                         <td>{{$pet->city}}</td>
                         <td>{{$pet->breed}}</td>

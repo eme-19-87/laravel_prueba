@@ -9,11 +9,11 @@
           Desea eliminar {{$pet_type->id." ".$pet_type->name}}?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
           <form action="{{route('admin.pettypes.destroy', $pet_type)}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-primary">Eliminar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
         </div>
       </div>

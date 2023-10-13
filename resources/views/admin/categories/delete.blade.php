@@ -9,11 +9,11 @@
           Desea eliminar  {{$category->id." ".$category->name}}?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
           <form action="{{route('admin.categories.destroy', $category)}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-primary">Eliminar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
         </div>
       </div>
