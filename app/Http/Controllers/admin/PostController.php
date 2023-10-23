@@ -8,14 +8,15 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Tags;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
- /*    public function __construct(){
+    public function __construct(){
         $this->middleware('can:admin.posts.index')->only('index');
         $this->middleware('can:admin.posts.edit')->only('edit', 'update');
         $this->middleware('can:admin.posts.destroy')->only('destroy', 'update');
-    } */
+    }
     /**
      * Display a listing of the resource.
      *
@@ -48,8 +49,13 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        $post = Post::create($request->all());
 
-       $post = Post::create($request->all());
+        if($request->file('file')){
+         $url = Storage::put('public/post', $request->file('file'));
+         $post->image()->create([
+             'url' => $url
+         ]);}
 
        return redirect()->route('admin.posts.index', $post);
     }

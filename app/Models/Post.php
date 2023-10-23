@@ -14,9 +14,6 @@ class Post extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
-    public function images (){
-        return $this->hasMany(Image::class, 'url');
-    }
 
     public function user(){
         return $this->belongsTo(User::class);
@@ -24,7 +21,7 @@ class Post extends Model
 
     public function image()
     {
-        return $this->hasOne('App\Models\Image');
+        return $this->morphOne(Image::class,'imageable');
     }
 }
 

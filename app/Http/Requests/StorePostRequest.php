@@ -30,7 +30,8 @@ class StorePostRequest extends FormRequest
        $rules = [
         'title' => 'required',
         'slug' => 'required|unique:posts',
-        'status' => 'required|in:1,2'
+        'status' => 'required|in:1,2',
+        'file'=>'file'
        ];
 
        if ($this->status == 2){
@@ -38,7 +39,8 @@ class StorePostRequest extends FormRequest
                 'category_id' => 'required',
                 'tags' => 'required',
                 'extract' => 'required',
-                'body' => 'required'
+                'body' => 'required',
+                'file'=>'file'
              ]);
         }
 

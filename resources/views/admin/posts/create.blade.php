@@ -9,10 +9,10 @@
 <p>Bienvenido a Administracion.</p>
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
-            
+
             <div class="form-group">
                 {!! Form::label('title', 'Nombre:') !!}
                 {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
@@ -40,7 +40,7 @@
                 @enderror
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
               <p class="font-weight-bold mb-1">Etiquetas:</p>
               @foreach ($tags as $tag)
 
@@ -55,7 +55,7 @@
               <br>
               <small class="text-danger">{{$message}}</small>
               @enderror
-            </div>
+            </div> --}}
 
 
             <div class="form-group">
@@ -65,7 +65,7 @@
                     {!! Form::radio('status', 1, true) !!}
                     Borrador
                 </label>
-               
+
                 <label>
                     {!! Form::radio('status', 2) !!}
                     Publicado
@@ -75,6 +75,29 @@
               <small class="text-danger">{{$message}}</small>
                @enderror
             </div>
+
+
+            <div class="row">
+              <div class="col">
+                  <div class="image-wrapper">
+                      @isset ($post->image)
+                          <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
+                      @else
+                          <img id="picture" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                      @endisset
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      {!! Form::label('file', 'Imagen del Post') !!}
+                      {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
+                      @error('file')
+                          <span class="text-danger">{{$message}}</span>
+                      @enderror
+                  </div>
+                  <p>Characteristics that the image should have</p>
+              </div>
+          </div>
 
            {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
             <div class="form-group">
@@ -86,7 +109,7 @@
             @enderror
             </div>
 
-            
+
 
             {{-- <p class="font-weight-bold mt-4">Body:</p> --}}
             <div class="mt-4 form-group">
@@ -98,7 +121,7 @@
             @enderror
             </div>
 
-            
+
 
              {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary'])!!}
              {!! Form::close() !!}
@@ -107,8 +130,21 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
+
 
 @section('js')
      {{-- CKEditor --}}
@@ -127,6 +163,21 @@
             space: '-'
            });
         });
+
+          // Cambiar la imagen
+
+          document.getElementById("file").addEventListener('change', cambiar);
+
+          function cambiar(event) {
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function(e){
+              document.getElementById("picture").setAttribute('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file);
+          }
 
         /*  ClassicEditor
           .create( document.querySelector( '#extract' ) )
