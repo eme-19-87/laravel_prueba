@@ -40,7 +40,7 @@
 
 
     </div>
-
+<img src="{{Storage::url($post->image->url)}}" alt="">
 
     </div>
 </section>

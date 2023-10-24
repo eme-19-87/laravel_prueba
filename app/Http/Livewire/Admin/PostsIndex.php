@@ -17,15 +17,15 @@ class PostsIndex extends Component
     public $search;
 
     public function updatingSearch(){
-        $this->resetPage();   
+        $this->resetPage();
     }
-     
+
     public function render()
     {
         $posts = Post::where('user_id', auth()->user()->id)
         ->where('title', 'LIKE', '%' . $this->search . '%')
         ->latest('id')
-        ->paginate();
+        ->paginate(6);
         return view('livewire.admin.posts-index', compact('posts'));
     }
 }

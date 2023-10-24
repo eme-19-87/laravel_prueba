@@ -76,6 +76,28 @@
            @enderror
         </div>
 
+        <div class="row">
+            <div class="col">
+                <div class="image-wrapper">
+                    @isset ($post->image)
+                        <img id="picture" class="img-fluid" src="{{Storage::url($post->image->url)}}" alt="">
+                    @else
+                        <img id="picture" class="img-fluid" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    @endisset
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    {!! Form::label('file', 'Imagen del Post') !!}
+                    {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
+                    @error('file')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
+                <p>Characteristics that the image should have</p>
+            </div>
+          </div>
+
        {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
         <div class="form-group">
           {!! Form::label('extract:') !!}

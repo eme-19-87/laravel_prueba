@@ -97,7 +97,7 @@
                   </div>
                   <p>Characteristics that the image should have</p>
               </div>
-          </div>
+            </div>
 
            {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
             <div class="form-group">

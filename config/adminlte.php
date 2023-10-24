@@ -325,40 +325,39 @@ return [
        ],
 
 
-        [   'header'      => 'Posts'],
+
+        ['header'         => 'Administrador'],
         [
             'text'        => 'Posts',
             'route'       => 'admin.posts.index',
             'icon'        => 'fas fa-solid fa-newspaper fa-fw',
 
         ],
-
-
-        ['header'         => 'Administrador'],
-
         [
             'text'        => 'Razas',
             'route'       => 'admin.pettypes.index',
             'icon'        => 'fas fa-solid fa-paw fa-fw',
+            'can'   => 'admin.pettypes.index',
         ],
 
-        [
-            'text'        => 'Vacunas',
-            'route'         => 'admin.vaccines.index',
-            'icon'        => 'fas fa-solid fa-syringe fa-fw',
+        // [
+        //     'text'        => 'Vacunas',
+        //     'route'         => 'admin.vaccines.index',
+        //     'icon'        => 'fas fa-solid fa-syringe fa-fw',
 
-        ],
+        // ],
 
-        [
-            'text'        => 'Etiquetas',
-            'route'       => 'admin.tags.index',
-            'icon'        => 'fas fa-solid fa-hashtag fa-fw',
-        ],
+        // [
+        //     'text'        => 'Etiquetas',
+        //     'route'       => 'admin.tags.index',
+        //     'icon'        => 'fas fa-solid fa-hashtag fa-fw',
+        // ],
 
         [
             'text'        => 'Categorias',
             'route'       => 'admin.categories.index',
             'icon'        => 'fas fa-solid fa-book fa-fw',
+            'can'   => 'admin.categories.index',
         ],
 
 
@@ -387,6 +386,7 @@ return [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon'  => 'fas fa-users fa-fw',
+            'can'   => 'admin.users.index',
         ],
     ],
 

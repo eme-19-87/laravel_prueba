@@ -17,12 +17,13 @@ class PetFactory extends Factory
     public function definition(): array
     {
         $gender = ['male', 'female'];
+        $features = ['Negro', 'Blanco', 'Marrón'];
         return [
             'name'=>fake()->name(),
             'breed'=>fake()->city()." Terrier",
             'age'=>rand(1, 20),
             'gender'=>$gender[rand(1, 2)-1],
-            'features'=>fake()->words(3, true),
+            'features'=>$features[rand(1, 3)-1],
             'city'=>fake()->city(),
             // 'veterinarian'=>'null'
         ];

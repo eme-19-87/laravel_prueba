@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
         Category::create([
             'name'  =>  'Cuidado',
             'slug'  =>  'cuidado',
-            'description'  =>  'Cuidado sobre las mascotas y tips'
+            'description'  =>  'Aseo, entrenamiento, y cuidado general de tus mascotas'
         ]);
 
         Category::create([
@@ -28,15 +28,15 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::create([
-            'name'  =>  'Felices Fiestas',
-            'slug'  =>  'felices-fiestas',
-            'description'  =>  'Tempano les desea Muy Felices Fiestas'
+            'name'  =>  'Entretenimiento',
+            'slug'  =>  'entretenimiento',
+            'description'  =>  'Videos de gatos, animales exóticos y los animales más carismáticos para tu entretenimiento'
         ]);
 
         Category::create([
             'name'  =>  'Eventos y actividades',
             'slug'  =>  'eventos-y-actividades',
-            'description'  =>  'actividades organizadas por administradores y patrocinadores'
+            'description'  =>  'Actividades organizadas por administradores y patrocinadores'
         ]);
 
         Category::create([
