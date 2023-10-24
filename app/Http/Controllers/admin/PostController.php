@@ -49,6 +49,7 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        $request->file('file')->store('post');
         $post = Post::create($request->all());
 
         if($request->file('file')){
