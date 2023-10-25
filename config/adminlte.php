@@ -303,12 +303,6 @@ return [
 
         // Sidebar items:
 
-        [
-            'text'        => 'blog',
-            'url'         => 'admin/blog',
-            /* 'can'  => 'manage-blog', */
-        ],
-
 
         [    'header'     => 'Navegacion'],
         [

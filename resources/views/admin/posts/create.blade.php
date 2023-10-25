@@ -62,7 +62,7 @@
                 <p class="font-weight-bold mb-1">Estado:</p>
 
                 <label class="mr-2">
-                    {!! Form::radio('status', 1, true) !!}
+                    {!! Form::radio('status', 1) !!}
                     Borrador
                 </label>
 

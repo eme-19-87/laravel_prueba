@@ -26,13 +26,19 @@
 
               <form method="GET" action="{{ route('index') }}" x-data>
                 @csrf
-                <a href="{{ route('index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
-                  Panel de Administrador
-                </a>
-
-                @can('admin.index')
-                <a href="{{route('admin.index')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
+                @auth
+                @can('admin')
+                <a href="{{route('index')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Panel de Administrador</a>
                 @endcan
+
+                <a href="{{ route('admin.pets.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
+                    Mis Mascotas
+                </a>
+                <a href="{{ route('admin.posts.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
+                    Mis Posts
+                </a>
+                @endauth
+
 
               </form>
               <form method="POST" action="{{ route('logout') }}" x-data>

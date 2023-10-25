@@ -40,7 +40,7 @@
 
 
     </div>
-<img src="{{Storage::url($post->image->url)}}" alt="">
+<img src="@if($post->image){{Storage::url($post->image->url)}}@else https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80 @endif" alt="">
 
     </div>
 </section>
