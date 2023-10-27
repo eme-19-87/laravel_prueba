@@ -9,9 +9,9 @@
           x-transition:leave="transition duration-200 transform ease"
           x-transition:leave-end="opacity-0 translate-y-5"
           @click.away="open = false"
-          class="fixed flex flex-col z-50 bottom-[100px] top-0 right-0 h-auto left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(100%-95px)] w-full sm:w-[350px] overflow-auto min-h-[250px] sm:h-[600px] border border-gray-300 bg-white shadow-2xl rounded-md"
+          class="fixed flex flex-col z-50 bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(100%-95px)] w-full sm:w-[350px] overflow-auto min-h-[250px] sm:h-[600px] border border-gray-300 bg-white shadow-2xl rounded-md"
         >
-        <div class="flex p-5 flex-col justify-center items-center h-32 bg-indigo-600">
+        <div class="flex p-5 flex-col justify-center items-center h-32 bg-purple-500">
           <h3 class="text-lg text-white">¿Como podemos ayudarte?</h3>
           <p class="text-white opacity-50">Escribenos si se te ocurre una idea de como podemos mejorar.</p>
         </div>
@@ -42,20 +42,20 @@
                 <label
                   for="full_name"
                   class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
-                  >Full Name</label
+                  >Nombre Completo</label
                 >
                 <input
                   type="text"
                   name="name"
                   id="full_name"
-                  placeholder="John Doe"
+                  placeholder="Juan Perez"
                   required
                   class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                 />
                 <div
                   class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
                 >
-                  Please provide your full name.
+                  Por favor rellena este campo.
                 </div>
               </div>
               
@@ -64,28 +64,28 @@
                 <label
                   for="email"
                   class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
-                  >Email Address</label
+                  >Email</label
                 >
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="you@company.com"
+                  placeholder="tu@ejemplo.com"
                   required
                   class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                 />
                 <div class="empty-feedback text-red-400 text-sm mt-1">
-                  Please provide your email address.
+                  Por favor, indicanos tu email.
                 </div>
                 <div class="invalid-feedback text-red-400 text-sm mt-1">
-                  Please provide a valid email address.
+                  Por favor, indicanos tu email.
                 </div>
               </div>
             <div class="mb-4">
               <label
                 for="message"
                 class="block mb-2 text-sm text-gray-600 dark:text-gray-400"
-                >Your Message</label
+                >Tu mensaje</label
               >
   
               <textarea
@@ -99,15 +99,15 @@
               <div
                 class="empty-feedback invalid-feedback text-red-400 text-sm mt-1"
               >
-                Please enter your message.
+              Por favor, escribe tu mensaje.
               </div>
             </div>
             <div class="mb-3">
               <button
                 type="submit"
-                class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none"
+                class="w-full px-3 py-4 text-white bg-purple-500 rounded-md focus:bg-indigo-600 focus:outline-none"
               >
-                Send Message
+                Enviar
               </button>
             </div>
           </form>
@@ -118,7 +118,7 @@
         <button
           id="w3f__widget--btn"
           @click="open = !open"
-          class="fixed z-40 right-5 bottom-5 shadow-lg flex justify-center items-center w-14 h-14 bg-indigo-500 rounded-full focus:outline-none hover:bg-indigo-600 focus:bg-indigo-600 transition duration-300 ease"
+          class="fixed z-40 right-5 bottom-5 shadow-lg flex justify-center items-center w-14 h-14 bg-purple-500 rounded-full focus:outline-none transition duration-300 ease"
         >
           <svg
             class="w-6 h-6 text-white absolute"

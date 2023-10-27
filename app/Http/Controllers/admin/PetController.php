@@ -60,7 +60,7 @@ class PetController extends Controller
 
         $pet = Pet::create($request->all());
         
-        return redirect()->route('admin.pets.index', $pet)->with('info', 'El Punto se ha creado con exito');
+        return redirect()->route('admin.pets.index', $pet)->with('info', 'Mascota agregada con exito');
     }
     
     /**
