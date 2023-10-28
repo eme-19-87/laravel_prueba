@@ -41,6 +41,7 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/pets',[PetController::class,'index']);
 Route::get('/pets/{pet}',[PetController::class,'show']);
+/* Route::get('/pets/{pet}',[PetController::class,'edit']); */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
