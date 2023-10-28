@@ -47,6 +47,9 @@
                         </a>
                     </div>
                 </div>
+                <div class="flex items-center justify-center mt-5">
+                    <button class="p-3 rounded-2xl bg-amber-400/90 ">Editar</button>
+                </div>
                 <div class="relative h-6 overflow-hidden translate-y-6 rounded-b-xl">
                     <div class="absolute flex -space-x-12 rounded-b-2xl">
                         <div class="w-36 h-8 transition-colors duration-200 delay-75 transform skew-x-[35deg] bg-amber-400/90 group-hover:bg-amber-600/90 z-10"></div>
@@ -68,7 +71,7 @@
             </div>
             <div class="flex items-center justify-center first-letter" id="qrcode"></div>
             <div class="flex items-center justify-center pt-2">
-                <a class="p-3 rounded-full bg-amber-400/90 text-white text-md" id="download-link" style="display: none">Descargar código QR</a>
+                <a class="p-3 rounded-2xl bg-amber-400/90 text-white text-md" id="download-link" style="display: none">Descargar código QR</a>
             </div>
         </div>
     @endif

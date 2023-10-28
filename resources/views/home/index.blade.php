@@ -26,7 +26,7 @@
 
         @if (Auth::check())
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <a href="/admin" class="text-sm font-semibold leading-6 text-gray-900">Ir al panel de administrador<span aria-hidden="true">→</span></a>
+          <a href="/admin" class="text-sm font-semibold leading-6 text-gray-900">Mis Mascotas<span aria-hidden="true"></span></a>
         </div>
         @endif
       </div>
