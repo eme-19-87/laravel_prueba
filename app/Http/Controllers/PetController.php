@@ -13,12 +13,20 @@ class PetController extends Controller
         $pets = Pet::all();
         return view('pets.index', compact('pets'));
     }
+
     public function show(Pet $pet){
         return view('pets.show', compact('pet'));
     }
+
     public function create(User $user){
         return view('pets.create', compact('user'));
     }
+
+    public function edit(Pet $pet)
+    {
+        return view('pets.edit', compact('pet'));
+    }
+
     public function store(Request $request){
         $request->validate([
             'name' => 'required',

@@ -28,22 +28,21 @@ Route::get('/about', function () {
     return view('about.index');
 });
 
-
-
 Route::get('/contact', function () {
     return view('contact.index');
 });
 
-
- /* Posts Vistas-User */
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show'); /* Vista de Cada Post */
 
-Route::get('/pets',[PetController::class,'index']);
-// Route::get('/pets/create',[PetController::class,'create']);
+Route::get('/pets', [PetController::class, 'index']);
+
+Route::get('/pets/create', [PetController::class, 'create']);
 // Route::post('/pets',[PetController::class,'store']);
-Route::get('/pets/{pet}',[PetController::class,'show']);
-/* Route::get('/pets/{pet}',[PetController::class,'edit']); */
+Route::get('/pets/{pet}', [PetController::class, 'show']);
+Route::get('/pets/{pet}', [PetController::class, 'edit']);
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -53,4 +52,3 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
