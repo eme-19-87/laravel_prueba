@@ -3,6 +3,7 @@
 @section('title', 'Iden Mac')
 
 @section('content_header')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
     <h1>Registrar Mascota</h1>
 @stop
 
@@ -10,12 +11,26 @@
 <p>Bienvenido a Administracion.</p>
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.pets.store']) !!}
+            {!! Form::open(['route' => 'admin.pets.store', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
+            <div class="form-group">
+                {!! Form::label('file', 'Foto') !!}
+                <div class="image-wrapper">
+                    @isset ($post->image)
+                        <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
+                    @else
+                        <img id="imagePreview" width="200" height="200" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    @endisset
+                </div>
+                {!! Form::file('file', ['accept' => 'image/*', 'id'=>'inputFile', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()']) !!}
+                @error('file')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
                 {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar Nombre']) !!}
@@ -83,6 +98,7 @@
 
 
             {!! Form::submit('Almacenar', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @stop
@@ -104,6 +120,17 @@
             space: '-'
            });
         });
+        function changeImagePreview(){
+            var input = document.getElementById('inputFile')
+            var file = input.files[0]
+            var imagePreview = document.getElementById('imagePreview')
+            var reader = new FileReader();
+            reader.onload = function (e){
+            // convert image file to base64 string
+            imagePreview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+    }
 
         /*  ClassicEditor
           .create( document.querySelector( '#editor' ) )

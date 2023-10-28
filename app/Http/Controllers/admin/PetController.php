@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Models\Pet;
 use App\Models\PetType;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class PetController extends Controller
 {
@@ -47,18 +49,25 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
+        $request->file('file')->store('pet');
         $request->validate([
-            'name' => 'required|unique:pets',
+            'name' => 'required',
             'breed' => 'required',
             'age' => 'required',
             'gender' => 'required',
             'features' => 'required',
             'city' => 'required',
-            'pet_type_id' => 'required|unique:pets',
-            'user_id' => 'required|unique:pets',
+            'pet_type_id' => 'required',
+            'user_id' => 'required'
         ]);
-
-        $pet = Pet::create($request->all());
+        $pet = Pet::create($request->except('file'));
+        $url = Storage::put('public/pet', $request->file('file'));
+        $pet->images()->create([
+            'url' => $url,
+            'imageable_id' => $pet->id,
+            'imageable_type' => 'App\Models\Pet'
+        ]);
+       
         
         return redirect()->route('admin.pets.index', $pet)->with('info', 'Mascota agregada con exito');
     }
