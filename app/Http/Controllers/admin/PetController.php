@@ -62,7 +62,7 @@ class PetController extends Controller
             'pet_type_id' => 'required',
             'user_id' => 'required'
         ]);
-        $url = $request->file('file')->store('public/pet');
+        $url = $request->file('file')->store('/');
         $pet = Pet::create($request->except('file'));
         $pet->image()->create([
             'url' => $url,

@@ -28,15 +28,11 @@
                 @csrf
                 @auth
                 @can('admin')
-                <a href="{{route('index')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Panel de Administrador</a>
+                  <a href="{{route('index')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Panel de Administrador</a>
                 @endcan
-
-                <a href="{{ route('admin.pets.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
-                    Mis Mascotas
-                </a>
-                <a href="{{ route('admin.posts.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
+                  <a href="{{ route('admin.posts.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"id="user-menu-item-2" @click.prevent="$root.submit();">
                     Mis Posts
-                </a>
+                  </a>
                 @endauth
 
 
