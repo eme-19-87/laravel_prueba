@@ -27,17 +27,6 @@
                             <p class="text-base font-semibold leading-7 text-indigo-600">{{ $post->category->name }}</p>
                             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 {{ $post->title }}</h1>
-<<<<<<< HEAD
-                            <p class="mt-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
-                            <div class="flex items-center mt-6 mb-10">
-                                <img class="object-cover object-center w-10 h-10 rounded-full"
-                                    src="{{ $post->user->profile_photo_url }}" alt="">
-                                <div class="mx-4">
-                                    <h2 class="text-sm text-black"> {{ $post->user->name }}</h2>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">rol</p>
-                                </div>
-                            </div>
-=======
                                 <div class="flex items-center mt-6 mb-10">
                                     <img class="object-cover object-center w-8 h-8 2xl:w-10 2xl:h-10 rounded-full"
                                         src="{{ $post->user->profile_photo_url }}" alt="">
@@ -47,7 +36,7 @@
                                 </div>
                             <p class="my-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
 
->>>>>>> 769cfe1e22af382f3720e29f2ac9b99107f74de9
+
                         </div>
                     </div>
                 </div>

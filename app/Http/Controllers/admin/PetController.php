@@ -97,11 +97,12 @@ class PetController extends Controller
         $pet_type = PetType::pluck('name','id');
         $user = User::pluck('name','id');
 
-        return view('admin.pets.index',[
+        return view('admin.pets.edit',[
 
             'pet_type'=>$pet_type,
             'user'=>$user,
         ], compact('pet'));
+
     }
 
     /**

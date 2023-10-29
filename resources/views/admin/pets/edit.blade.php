@@ -14,12 +14,24 @@
         </div>
     @endif
 
+
     <div class="card">
         <div class="card-body">
             {!! Form::model($pet, ['route' => ['admin.pets.update', $pet], 'method' => 'put']) !!}
 
             {{-- Formulario de Categoria --}}
             {{-- Permite almacenar datos de una nueva categoria --}}
+            <div class="form-group">
+                {!! Form::label('file', 'Foto') !!}
+                <p class="text-muted">Adjuntá una foto de tu mascota para facilitar su identificación</p>
+                <div class="image-wrapper pb-4 ">
+                        <img class="border rounded-circle" id="imagePreview" width="200" height="200" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+                {!! Form::file('file', ['accept' => 'image/*', 'id'=>'inputFile', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()']) !!}
+                @error('file')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
                 {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => '']) !!}
@@ -32,7 +44,7 @@
 
             <div class="form-group">
                 {!! Form::label('breed', 'Cria') !!}
-                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => features']) !!}
+                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'features']) !!}
 
                 @error('breed')
                     <span class="text-danger">{{$message}}</span>
@@ -57,7 +69,7 @@
             </div>
             
             <div class="form-group">
-                {!! Form::label('gender', 'Horarios') !!}
+                {!! Form::label('gender', 'Genero') !!}
                 {!! Form::text('gender', NULL, ['class' => 'form-control', 'placeholder' => 'Genero']) !!}
 
                 @error('gender')
@@ -120,6 +132,25 @@
             space: '-'
            });
         });
+
+        $(document).ready( function() {
+          $("#title").stringToSlug({
+            setEvents: 'keyup keydown blur',
+            getPut: '#slug',
+            space: '-'
+           });
+        });
+        function changeImagePreview(){
+            var input = document.getElementById('inputFile')
+            var file = input.files[0]
+            var imagePreview = document.getElementById('imagePreview')
+            var reader = new FileReader();
+            reader.onload = function (e){
+            // convert image file to base64 string
+            imagePreview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+    }
 
         /*  ClassicEditor
           .create( document.querySelector( '#editor' ) )
