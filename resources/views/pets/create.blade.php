@@ -9,10 +9,9 @@
 
                     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-
                     <div class="max-w-md w-full space-y-8 p-10 z-10">
-                        <div class="grid  gap-8 grid-cols-1">
-                            <div class="flex flex-col ">
+                        <div class="grid gap-8 grid-cols-1">
+                            <div class="flex flex-col">
                                 <div class="flex flex-col sm:flex-row items-center">
                                     <h2 class="font-semibold text-lg mr-auto">Registro de Mascota</h2>
                                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
@@ -60,14 +59,14 @@
                                         
                                         <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                             <div class="w-full flex flex-col mb-3">
-                                                <label class="font-semibold text-gray-600 py-2">Edad</label>
+                                                <label class="font-semibold text-gray-600 py-2">Edad <abbr title="Required field">*</abbr></label>
                                                 <input placeholder="Edad"
                                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                                                     type="text" name="integration[street_address]"
                                                     id="integration_street_address">
                                             </div>
                                             <div class="w-full flex flex-col mb-3">
-                                                <label class="font-semibold text-gray-600 py-2">Ubicacion<abbr
+                                                <label class="font-semibold text-gray-600 py-2">Ubicación<abbr
                                                         title="required">*</abbr></label>
                                                 <select
                                                     class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
@@ -134,18 +133,18 @@
                                                 Por favor rellena este Campo.</p>
                                         </div>
                                         <div class="flex-auto w-full mb-1 text-xs space-y-2">
-                                            <label class="font-semibold text-gray-600 py-2">Description</label>
+                                            <label class="font-semibold text-gray-600 py-2">Descripción</label>
                                             <textarea required="" name="message" id=""
                                                 class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
                                                 placeholder="Describe a tu mascotas" spellcheck="false"></textarea>
                                         </div>
-                                        <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran marcados con un asterisco<abbr title="Required field">*</abbr></p>
+                                        <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran marcados con un <abbr title="Required field">*</abbr></p>
                                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                             <button
                                                 class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider  text-gray-600 rounded-full hover:shadow-lg hover:bg-amber-200">
-                                                Cancel</button>
+                                                Cancelar</button>
                                             <button
-                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Save</button>
+                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Guardar</button>
                                         </div>
                                     </div>
                                 </div>
