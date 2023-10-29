@@ -27,6 +27,7 @@
                             <p class="text-base font-semibold leading-7 text-indigo-600">{{ $post->category->name }}</p>
                             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 {{ $post->title }}</h1>
+<<<<<<< HEAD
                             <p class="mt-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
                             <div class="flex items-center mt-6 mb-10">
                                 <img class="object-cover object-center w-10 h-10 rounded-full"
@@ -36,6 +37,17 @@
                                     <p class="text-sm text-gray-500 dark:text-gray-400">rol</p>
                                 </div>
                             </div>
+=======
+                                <div class="flex items-center mt-6 mb-10">
+                                    <img class="object-cover object-center w-8 h-8 2xl:w-10 2xl:h-10 rounded-full"
+                                        src="{{ $post->user->profile_photo_url }}" alt="">
+                                    <div class="mx-4">
+                                        <h1 class="text-xs 2xl:text-sm text-black"> {{ $post->user->name }}</h1>
+                                    </div>
+                                </div>
+                            <p class="my-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
+
+>>>>>>> 769cfe1e22af382f3720e29f2ac9b99107f74de9
                         </div>
                     </div>
                 </div>
@@ -43,17 +55,17 @@
                 <div>
 
                 </div>
-                <figure>
-                    <div class="">
+                <figure class="flex justify-center">
+                    <div class="w-9/12 h-42">
                         @if ($post->image)
-                            <img src={{ url(Storage::url($post->image->url)) }} alt="" class="w-screen h-screen">
+                            <img src={{ Storage::url($post->image->url) }} alt="" class="w-screen h-screen">
                         @else
                             <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=2896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                         @endif
                     </div>
                 </figure>
-                <div>
-                    <p class="mt-4 text-xl text-black">{{ $post->body }}</p>
+                <div class="mx-24 my-4">
+                    <p class="text-xl text-black">{{ $post->body }}</p>
                 </div>
             </div>
 
