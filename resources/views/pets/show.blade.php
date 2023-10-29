@@ -59,11 +59,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="flex items-center justify-center mt-5">
-                        <button class="p-3 rounded-2xl bg-amber-400/90 ">
-                            <a href="{{$pet->id}}/edit">Editar</a>
-                        </button>
-                    </div>
+                    @if (auth()->id() == $pet->user_id)
+                        <div class="flex items-center justify-center mt-5">
+                            <button class="p-3 rounded-2xl bg-amber-400/90 ">
+                                <a href="{{$pet->id}}/edit">Editar</a>
+                            </button>
+                        </div>
+                    @endif
                     <div class="relative h-6 overflow-hidden translate-y-6 rounded-b-xl">
                         <div class="absolute flex -space-x-12 rounded-b-2xl">
                             <div
