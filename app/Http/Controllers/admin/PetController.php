@@ -20,7 +20,7 @@ class PetController extends Controller
     public function index()
     {
         $pets = Pet::all();
-        
+
         return view('admin.pets.index', compact('pets'));
     }
 
@@ -64,16 +64,16 @@ class PetController extends Controller
         ]);
         $url = $request->file('file')->store('public/pet');
         $pet = Pet::create($request->except('file'));
-        $pet->images()->create([
+        $pet->image()->create([
             'url' => $url,
             'imageable_id' => $pet->id,
             'imageable_type' => 'App\Models\Pet'
         ]);
-       
-        
+
+
         return redirect()->route('admin.pets.index', $pet)->with('info', 'Mascota agregada con exito');
     }
-    
+
     /**
      * Display the specified resource.
      *

@@ -20,9 +20,9 @@ class Pet extends Model
     public function pets_has_vaccines(){
         return $this->hasMany(PetsHasVaccines::class);
     }
-    public function images()
+    public function image()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphOne(Image::class,'imageable');
     }
     public function user(){
         return $this->belongsTo(User::class);
