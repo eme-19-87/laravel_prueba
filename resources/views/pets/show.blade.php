@@ -10,6 +10,7 @@
                             <div class="relative">
 
                                 @if ($pet->image)
+                                
                                     <img class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
                                         src="{{ Storage::url($pet->image->url) }}" alt="" />
                                 @else
@@ -29,7 +30,8 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                             <div class="font-bold tracking-wide text-black font-sans text-xl">{{ $pet->city }},
-                                Argentina</div>
+                                Argentina
+                            </div>
                         </div>
                         <div class="flex mt-1 flex-row justify-center w-full mx-auto space-x-2 text-center">
                             <div class=" font-bold tracking-wide text-black font-sans text-xl">

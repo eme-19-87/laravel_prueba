@@ -32,11 +32,10 @@
                                 <img class="object-cover object-center w-10 h-10 rounded-full"
                                     src="{{ $post->user->profile_photo_url }}" alt="">
                                 <div class="mx-4">
-                                    <h1 class="text-sm text-black"> {{ $post->user->name }}</h1>
+                                    <h2 class="text-sm text-black"> {{ $post->user->name }}</h2>
                                     <p class="text-sm text-gray-500 dark:text-gray-400">rol</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
