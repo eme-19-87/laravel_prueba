@@ -18,7 +18,7 @@
                                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                                 </div>
                                 <div class="mt-5">
-                                    <div class="form">
+                                    <form method="POST" action="{{route('pets.store')}}" enctype="multipart/form-data" class="form">
                                         <div class="">
                                             <label class="text-xs font-semibold text-gray-600 py-2">Foto de la mascota<abbr class="hidden" title="required">*</abbr></label>
                                             <div class="flex items-center py-6">
@@ -147,7 +147,7 @@
                                             <button
                                                 class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Save</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -4,11 +4,16 @@
     <div class="from-gray-200 via-gray-300 to-gray-400 bg-gradient-to-br">
         <div class='flex pt-32 2xl:pt-0 items-center justify-center min-h-screen 2xl:h-auto'>
             <div class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white border md:max-w-sm rounded-xl">
-                <div class="pb-6">
+                <form action="{{route('pets.update', ['pet' => $pet])}}" class="pb-6">
                     <div class="flex flex-wrap justify-center">
                         <div class="flex justify-center w-full">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80" class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
+                                @if ($pet->image)
+                                    <img class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
+                                        src="{{ Storage::url($pet->image->url) }}" alt="" />
+                                @else
+                                    <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80" class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -56,7 +61,7 @@
                             <div class="w-28 h-8 transition-colors duration-200 delay-300 transform skew-x-[35deg] bg-amber-50/90 group-hover:bg-amber-200/90 z-50"></div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
     
         </div>

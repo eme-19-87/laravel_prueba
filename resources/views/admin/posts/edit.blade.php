@@ -9,7 +9,7 @@
 <p>Bienvenido a Administracion.</p>
 <div class="card">
     <div class="card-body">
-        {!! Form::model($post,['route' => ['admin.posts.update',$post],'method' => 'put']) !!}
+        {!! Form::model($post,['route' => ['admin.posts.update',$post],'method' => 'put', 'files' => true]) !!}
 
         {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -133,5 +133,16 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
+</script>
+    <script> 
+
+
+    $(document).ready( function() {
+        $("#title").stringToSlug({
+          setEvents: 'keyup keydown blur',
+          getPut: '#slug',
+          space: '-'
+         });
+      }); </script>
 @stop

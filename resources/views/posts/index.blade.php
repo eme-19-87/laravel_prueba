@@ -6,10 +6,19 @@
     <div class="grid md:grid-cols-2 gap-8">
     @foreach ($posts as $post)
         {{-- @dd($post->image) --}}
-            <article  class="@if($post->image) bg-[url('/storage/post/h3tBWqGDUrULiXNQ0t54slyPynuyAPFsMXVbQSAn.jpg')] @else bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] @endif bg-black/20 border border-gray-200 rounded-lg p-8 md:p-12 @if($loop->first) col-span-2 mb-8 @endif">
-                @if ($post->image)
+        @php
+        try {
+            
+            $test = `bg-[url('/storage/app/{$post->image->url}')]`;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        @endphp
+        @if($post->image)
+            <article style="background-image: url('/storage/app/{{$post->image->url}}')" class="bg-black/20 border border-gray-200 rounded-lg p-8 md:p-12 @if($loop->first) col-span-2 mb-8 @endif">
 
-                <img src="{{Storage::url($post->image->url)}}" alt="" srcset="">
+                @else
+                <article class="bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-black/20 border border-gray-200 rounded-lg p-8 md:p-12 @if($loop->first) col-span-2 mb-8 @endif">
                 @endif
                 <a href="#" class="bg-white text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mb-2">
                     <svg class="w-2.5 h-2.5 mr-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">

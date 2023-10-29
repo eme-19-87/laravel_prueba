@@ -14,8 +14,8 @@
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
             <div class="form-group">
-                {!! Form::label('title', 'Nombre:') !!}
-                {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del post']) !!}
+                {!! Form::label('title', 'Título:') !!}
+                {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Título del post']) !!}
 
                 @error('title')
                 <small class="text-danger">{{$message}}</small>
@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 {!! Form::label('slug', 'Slug:') !!}
-                {!! Form::text('slug', NULL, ['class' => 'form-control', 'placeholder' => 'Slug del post', 'readonly']) !!}
+                {!! Form::text('slug', NULL, ['class' => 'form-control', 'placeholder' => 'Slug del post, para uso del software unicamente', 'readonly']) !!}
 
                 @error('slug')
                 <small class="text-danger">{{$message}}</small>
@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('category_id', 'Categoria:') !!}
+                {!! Form::label('category_id', 'Categoría:') !!}
                 {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
 
                 @error('category_id')
