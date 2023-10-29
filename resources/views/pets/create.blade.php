@@ -17,18 +17,23 @@
                                     <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
                                 </div>
                                 <div class="mt-5">
-                                    <form method="POST" action="{{route('pets.store')}}" enctype="multipart/form-data" class="form">
+                                    <form method="POST" action="{{ route('pets.store') }}"
+                                        enctype="multipart/form-data" class="form">
                                         <div class="">
-                                            <label class="text-xs font-semibold text-gray-600 py-2">Foto de la mascota<abbr class="hidden" title="required">*</abbr></label>
+                                            <label form="file" class="text-xs font-semibold text-gray-600 py-2">Foto de la
+                                                mascota<abbr class="hidden" title="required">*</abbr></label>
                                             <div class="flex items-center py-6">
                                                 <div class="w-12 h-12 mr-4 flex-none rounded-xl border overflow-hidden">
-                                                    <img class="w-12 h-12 mr-4 object-cover"
-                                                        src="https://images.unsplash.com/photo-1611867967135-0faab97d1530?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1352&amp;q=80"
-                                                        alt="Avatar Upload">
+                                                    @isset ($post->image)
+                                                        <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
+                                                    @else
+                                                        <img id="picture" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                                                    @endisset
                                                 </div>
+
                                                 <label class="cursor-pointer ">
                                                     <span
-                                                        class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-amber-400 hover:bg-amber-500 hover:shadow-lg">Buscar</span>
+                                                        class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-amber-400 hover:bg-amber-500 hover:shadow-lg">Buscar Imagen</span>
                                                     <input type="file" class="hidden" :multiple="multiple"
                                                         :accept="accept">
                                                 </label>
@@ -56,10 +61,11 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                             <div class="w-full flex flex-col mb-3">
-                                                <label class="font-semibold text-gray-600 py-2">Edad <abbr title="Required field">*</abbr></label>
+                                                <label class="font-semibold text-gray-600 py-2">Edad <abbr
+                                                        title="Required field">*</abbr></label>
                                                 <input placeholder="Edad"
                                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
                                                     type="text" name="integration[street_address]"
@@ -93,14 +99,15 @@
                                                     <option value="">Santa Cruz</option>
                                                     <option value="">Santa Fe</option>
                                                     <option value="">Santiago del Estero</option>
-                                                    <option value="">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                                                    <option value="">Tierra del Fuego, Antártida e Islas del
+                                                        Atlántico Sur</option>
                                                     <option value="">Tucumán</option>
                                                     <option value="">CABA</option>
                                                 </select>
                                                 <p class="text-sm text-red-500 hidden mt-3" id="error">
                                                     Por favor rellena este Campo.</p>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="w-full flex flex-col mb-3">
                                             <label class="font-semibold text-gray-600 py-2">Genero<abbr
@@ -109,9 +116,9 @@
                                                 class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
                                                 required="required" name="integration[city_id]"
                                                 id="integration_city_id">
-                                                <option value="">Masculino</option>
-                                                <option value="">Femenino</option>
-                            
+                                                <option value="">Macho</option>
+                                                <option value="">Hembra</option>
+
                                             </select>
                                             <p class="text-sm text-red-500 hidden mt-3" id="error">
                                                 Por favor rellena este Campo.</p>
@@ -127,7 +134,7 @@
                                                 <option value="">Gato</option>
                                                 <option value="">Loro</option>
                                                 <option value="">Tortuga</option>
-                            
+
                                             </select>
                                             <p class="text-sm text-red-500 hidden mt-3" id="error">
                                                 Por favor rellena este Campo.</p>
@@ -138,13 +145,16 @@
                                                 class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
                                                 placeholder="Describe a tu mascotas" spellcheck="false"></textarea>
                                         </div>
-                                        <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran marcados con un <abbr title="Required field">*</abbr></p>
+                                        <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran
+                                            marcados con un <abbr title="Required field">*</abbr></p>
                                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                             <button
                                                 class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider  text-gray-600 rounded-full hover:shadow-lg hover:bg-amber-200">
                                                 Cancelar</button>
                                             <button
-                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Guardar</button>
+                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500"><label for="">Guardar</label>
+                                                <input type="submit">
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
@@ -180,7 +190,34 @@
         </div>
     </div>
 
+    <style>
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    
     <script>
+        document.getElementById("file").addEventListener('change', cambiar);
+
+        function cambiar(event) {
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById("picture").setAttribute('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file);
+        }
+
         const URL = window.location;
 
         function generateQRCode() {

@@ -95,7 +95,6 @@
                           <span class="text-danger">{{$message}}</span>
                       @enderror
                   </div>
-                  <p>Characteristics that the image should have</p>
               </div>
             </div>
 

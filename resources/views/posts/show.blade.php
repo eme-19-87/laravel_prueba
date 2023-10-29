@@ -27,7 +27,7 @@
                             <p class="text-base font-semibold leading-7 text-indigo-600">{{ $post->category->name }}</p>
                             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 {{ $post->title }}</h1>
-                            <p class="mt-6 text-md leading-8 text-gray-500">{{!! $post->extract !!}}</p>
+                            <p class="mt-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
                             <div class="flex items-center mt-6 mb-10">
                                 <img class="object-cover object-center w-10 h-10 rounded-full"
                                     src="{{ $post->user->profile_photo_url }}" alt="">
@@ -47,14 +47,14 @@
                 <figure>
                     <div class="">
                         @if ($post->image)
-                            <img src="{{ Storage::url($post->image->url) }}" alt="" class="w-screen h-screen">
+                            <img src="/storage/app/public/post{{ Storage::url($post->image->url) }}" alt="" class="w-screen h-screen">
                         @else
                             <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=2896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                         @endif
                     </div>
                 </figure>
                 <div>
-                    <p class="mt-4 text-xl text-black">{{!! $post->body !!}}</p>
+                    <p class="mt-4 text-xl text-black">{{ $post->body }}</p>
                 </div>
             </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pet;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class PetController extends Controller
 {
@@ -33,19 +34,16 @@ class PetController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
-            'name' => 'required',
-            'breed' => 'required',
-            'age' => 'required',
-            'gender' => 'required',
-            'features' => 'required',
-            'city' => 'required',
-            'pet_type_id' => 'required',
-            'user_id' => 'required',
-        ]);
 
+        $request->file('file')->store('pet');
         $pet = Pet::create($request->all());
-        
+
+        if($request->file('file')){
+            $url = Storage::put('public/pet', $request->file('file'));
+            $pet->image()->create([
+                'url' => $url
+            ]);}
+
         return redirect()->route('pets.index', $pet)->with('info', 'Mascota agregada con exito');
     }
 }
