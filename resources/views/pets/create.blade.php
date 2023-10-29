@@ -4,13 +4,13 @@
     <div class="from-gray-200 via-gray-300 to-gray-400 bg-gradient-to-br">
         <div class='flex pt-32 2xl:pt-0 items-center justify-center min-h-screen 2xl:h-auto'>
             <div
-                class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white border md:max-w-sm rounded-xl">
+                class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white md:max-w-sm rounded-xl">
                 <div class="pb-6">
 
                     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 
-                    <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
+                    <div class="max-w-md w-full space-y-8 p-10 z-10">
                         <div class="grid  gap-8 grid-cols-1">
                             <div class="flex flex-col ">
                                 <div class="flex flex-col sm:flex-row items-center">
@@ -29,7 +29,7 @@
                                                 </div>
                                                 <label class="cursor-pointer ">
                                                     <span
-                                                        class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Buscar</span>
+                                                        class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-amber-400 hover:bg-amber-500 hover:shadow-lg">Buscar</span>
                                                     <input type="file" class="hidden" :multiple="multiple"
                                                         :accept="accept">
                                                 </label>
@@ -117,19 +117,35 @@
                                             <p class="text-sm text-red-500 hidden mt-3" id="error">
                                                 Por favor rellena este Campo.</p>
                                         </div>
+                                        <div class="w-full flex flex-col mb-3">
+                                            <label class="font-semibold text-gray-600 py-2">Tipo<abbr
+                                                    title="required">*</abbr></label>
+                                            <select
+                                                class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
+                                                required="required" name="integration[city_id]"
+                                                id="integration_city_id">
+                                                <option value="">Perro</option>
+                                                <option value="">Gato</option>
+                                                <option value="">Loro</option>
+                                                <option value="">Tortuga</option>
+                            
+                                            </select>
+                                            <p class="text-sm text-red-500 hidden mt-3" id="error">
+                                                Por favor rellena este Campo.</p>
+                                        </div>
                                         <div class="flex-auto w-full mb-1 text-xs space-y-2">
                                             <label class="font-semibold text-gray-600 py-2">Description</label>
                                             <textarea required="" name="message" id=""
                                                 class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
-                                                placeholder="Enter your comapny info" spellcheck="false"></textarea>
+                                                placeholder="Describe a tu mascotas" spellcheck="false"></textarea>
                                         </div>
                                         <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran marcados con un asterisco<abbr title="Required field">*</abbr></p>
                                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
                                             <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
-                                                Cancel </button>
+                                                class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider  text-gray-600 rounded-full hover:shadow-lg hover:bg-amber-200">
+                                                Cancel</button>
                                             <button
-                                                class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
+                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Save</button>
                                         </div>
                                     </div>
                                 </div>
