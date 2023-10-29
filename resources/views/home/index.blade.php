@@ -33,19 +33,18 @@
                     </div>
                     <div class="text-center">
                         <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Bienvenidos a Iden MAC</h1>
-                        <p class="mt-2 text-lg leading-8 text-white">Somos una APP dedicada a concientizar sobre el
-                            maltrato
-                            animal</p>
-
-                        <button
-                          class="flex mx-auto mt-12 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded-3xl text-lg"><a
-                                href="{{ route('login') }}">Registrarme</a>
-                        </button>
+                        <p class="mt-2 text-lg leading-8 text-white">Somos una APP dedicada a concientizar sobre el maltrato animal</p>
 
                         @if (Auth::check())
                             <button
                                 class="flex mx-auto mt-3 text-white py-2 px-6 focus:outline-none ring-2 ring-purple-300 hover:ring-purple-500  rounded-3xl text-lg"><a
-                                    href="/pets">Mis Mascotas</a></button>
+                                href="/pets">Mis Mascotas</a></button>
+
+                        @else
+                            <button
+                                class="flex mx-auto mt-12 text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded-3xl text-lg"><a
+                                href="{{ route('login') }}">Iniciar</a>
+                            </button>
                         @endif
                         
                     </div>
