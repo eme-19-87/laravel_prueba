@@ -93,10 +93,31 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(StorePostRequest $request, Post $post)
     {
-        $post->update($request->all());
-        return redirect()->route('admin.posts.edit', $post)->with('info', 'La Etiqueta se actualizo con exito');
+        
+        if ($request->file('file') == null) {
+            $fileIsNotNull = false;
+        } else {$fileIsNotNull = true;};
+
+        $post->update([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'extract' => $request->extract,
+            'body' => $request->body,
+            'status'=> $request->status,
+            'category_id'=>$request->category_id,
+            'user_id'=>$request->user_id
+        ]);
+
+        if ($fileIsNotNull) {
+            $url = $request->file('file')->store('public/post');
+            $image = $post->image()->update([
+                'url' => $url
+            ]);
+        }
+
+        return redirect()->route('admin.posts.index')->with('info', 'Post actualizado correctamente');
     }
 
     /**

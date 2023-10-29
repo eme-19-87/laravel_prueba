@@ -1,8 +1,5 @@
 <x-app-layout>
     <div>
-
-        
-
         <head>
             <link rel="stylesheet"
                 href="https://horizon-tailwind-react-corporate-7s21b54hb-horizon-ui.vercel.app/static/css/main.d7f96858.css" />

@@ -10,7 +10,8 @@ class PetController extends Controller
 {
     public function index()
     {
-        $pets = Pet::all();
+        $user = auth()->user();
+        $pets = $user->pets->all();
         return view('pets.index', compact('pets'));
     }
 
@@ -25,6 +26,10 @@ class PetController extends Controller
     public function edit(Pet $pet)
     {
         return view('pets.edit', compact('pet'));
+    }
+    
+    public function update(Request $request, Pet $pet){
+
     }
 
     public function store(Request $request){

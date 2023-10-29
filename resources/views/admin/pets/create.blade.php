@@ -8,7 +8,6 @@
 @stop
 
 @section('content')
-<p>Bienvenido a Administracion.</p>
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.pets.store', 'files' => true]) !!}
@@ -19,12 +18,9 @@
             {{-- Permite almacenar datos de una nueva categoria --}}
             <div class="form-group">
                 {!! Form::label('file', 'Foto') !!}
-                <div class="image-wrapper">
-                    @isset ($post->image)
-                        <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
-                    @else
-                        <img id="imagePreview" width="200" height="200" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                    @endisset
+                <p class="text-muted">Adjuntá una foto de tu mascota para facilitar su identificación</p>
+                <div class="image-wrapper pb-4 ">
+                        <img class="border rounded-circle" id="imagePreview" width="200" height="200" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
                 {!! Form::file('file', ['accept' => 'image/*', 'id'=>'inputFile', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()']) !!}
                 @error('file')
@@ -33,7 +29,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('name', 'Nombre') !!}
-                {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => 'Ingresar Nombre']) !!}
+                {!! Form::text('name', NULL, ['class' => 'form-control', 'placeholder' => 'Nombre de tu mascota']) !!}
 
                 @error('name')
                     <span class="text-danger">{{$message}}</span>
@@ -41,16 +37,23 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('pet_type', 'Tipo de Mascota') !!}
-                {!! Form::select('pet_type',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Seleccionar']) !!}
+                {!! Form::label('pet_type_id', 'Tipo de Mascota') !!}
+                <select class='form-control' name="pet_type_id" id="pet_type_id">
+                    <option value="">Seleccionar</option>
+                    @foreach ($pet_types as $pet_type)
+                    <option value="{{$pet_type->id}}">
+                        {{ucfirst(__($pet_type->name))}}
+                    </option>
+                    @endforeach
 
-                @error('pet_type')
+                </select>
+                @error('pet_type_id')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('breed', 'Raza') !!}
-                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
+                {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'Raza a la cual pertenece tu mascota']) !!}
 
                 @error('breed')
                     <span class="text-danger">{{$message}}</span>
@@ -59,7 +62,7 @@
 
             <div class="form-group">
                 {!! Form::label('age', 'Edad') !!}
-                {!! Form::text('age', NULL, ['class' => 'form-control', 'placeholder' => 'Edad']) !!}
+                {!! Form::text('age', NULL, ['class' => 'form-control', 'placeholder' => 'La edad de tu mascota, en años']) !!}
 
                 @error('age')
                     <span class="text-danger">{{$message}}</span>
@@ -68,8 +71,18 @@
 
             <div class="form-group">
                 {!! Form::label('gender', 'Genero') !!}
-                {!! Form::text('gender', NULL, ['class' => 'form-control', 'placeholder' => 'Genero']) !!}
+               
+                <select class='form-control' name="gender" id="gender">
+                    <option value="">Seleccionar</option>
+                   
+                    <option value="male">
+                        Macho
+                    </option>
+                    <option value="female">
+                        Hembra
+                    </option>
 
+                </select>
                 @error('gender')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -77,7 +90,7 @@
 
             <div class="form-group">
                 {!! Form::label('features', 'Caracteristicas') !!}
-                {!! Form::text('features', NULL, ['class' => 'form-control', 'placeholder' => 'Caracteristicas']) !!}
+                {!! Form::text('features', NULL, ['class' => 'form-control', 'placeholder' => 'Caracteristicas distintivas de tu mascota. Puede ser el color del pelaje, ojos, su tamaño o demas cualidades identificativas']) !!}
 
                 @error('features')
                     <span class="text-danger">{{$message}}</span>
@@ -86,7 +99,7 @@
 
             <div class="form-group">
                 {!! Form::label('city', 'Ciudad') !!}
-                {!! Form::text('city', NULL, ['class' => 'form-control', 'placeholder' => 'Ciudad']) !!}
+                {!! Form::text('city', NULL, ['class' => 'form-control', 'placeholder' => 'Ciudad donde se encuentra tu mascota']) !!}
 
                 @error('city')
                     <span class="text-danger">{{$message}}</span>

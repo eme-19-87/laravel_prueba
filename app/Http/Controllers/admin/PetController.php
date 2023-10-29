@@ -29,14 +29,15 @@ class PetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Pet $pet)
     {
-        $pet_type = PetType::pluck('name','id');
+        $pet_types = PetType::all();
         $user = User::pluck('name','id');
 
         return view('admin.pets.create', [
-            'pet_type'=>$pet_type,
-            'user'=>$user
+            'pet_types'=>$pet_types,
+            'user'=>$user,
+            'pet'=>$pet
         ]);
 
     }
@@ -49,8 +50,9 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        $request->file('file')->store('pet');
+        // dd($request);
         $request->validate([
+            'file'=>'file',
             'name' => 'required',
             'breed' => 'required',
             'age' => 'required',
@@ -60,8 +62,8 @@ class PetController extends Controller
             'pet_type_id' => 'required',
             'user_id' => 'required'
         ]);
+        $url = $request->file('file')->store('public/pet');
         $pet = Pet::create($request->except('file'));
-        $url = Storage::put('public/pet', $request->file('file'));
         $pet->images()->create([
             'url' => $url,
             'imageable_id' => $pet->id,
@@ -135,8 +137,9 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
+        $pet->images()->delete();
         $pet->delete();
-        return redirect()->route('admin.pets.index', $pet)->with('info', 'El Punto se Elimino con exito');
+        return redirect()->route('admin.pets.index', $pet)->with('info', 'La mascota se elimino del registro');
     }
 
     public function pet_type(PetType $pet_type){

@@ -12,6 +12,8 @@
                                 @if ($pet->image)
                                     <img class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
                                         src="{{ Storage::url($pet->image->url) }}" alt="" />
+                                @else
+                                    <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80" class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" />
                                 @endif
 
                             </div>
@@ -45,7 +47,7 @@
                         <div class="flex flex-wrap justify-center">
                             <div class="w-full px-6">
                                 <p class="mb-4 font-light leading-relaxed text-bl">
-                                    Crias: {{ $pet->breed }}
+                                    Raza: {{ $pet->breed }}
                                 </p>
                             </div>
                         </div>
@@ -59,7 +61,7 @@
                     </div>
                     <div class="flex items-center justify-center mt-5">
                         <button class="p-3 rounded-2xl bg-amber-400/90 ">
-                            <a href="/edit">Editar</a>
+                            <a href="{{$pet->id}}/edit">Editar</a>
                         </button>
                     </div>
                     <div class="relative h-6 overflow-hidden translate-y-6 rounded-b-xl">
