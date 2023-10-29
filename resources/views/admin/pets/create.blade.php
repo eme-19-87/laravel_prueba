@@ -87,6 +87,7 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
+            
 
             <div class="form-group">
                 {!! Form::label('features', 'Caracteristicas') !!}

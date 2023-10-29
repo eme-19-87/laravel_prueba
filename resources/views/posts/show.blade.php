@@ -36,6 +36,7 @@
                                 </div>
                             <p class="my-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
 
+
                         </div>
                     </div>
                 </div>

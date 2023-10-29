@@ -76,7 +76,6 @@
                @enderror
             </div>
 
-
             <div class="row">
               <div class="col">
                   <div class="image-wrapper">

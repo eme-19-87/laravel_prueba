@@ -3,8 +3,8 @@
         <div class="relative h-screen grid place-items-center pt-14"
             style='background-image: url("https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=1896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'>
 
-            <div class="w-screen h-screen bg-black/25">
-                <div class="mt-24 mx-auto max-w-2xl py-32 sm:py-48 xl:py-24 2xl:py-56">
+            <div class="w-screen h-full bg-black/25">
+                <div class="mt-32 mx-auto max-w-2xl py-32 sm:py-48 xl:py-24 2xl:py-56">
                     <div class="absolute inset-0 -z-10 overflow-hidden">
                         <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
                             aria-hidden="true">
@@ -37,7 +37,7 @@
 
                         @if (Auth::check())
                             <button
-                                class="flex mx-auto mt-3 text-white py-2 px-6 focus:outline-none ring-2 ring-purple-300 hover:ring-purple-500  rounded-3xl text-lg"><a
+                                class="flex mx-auto mt-10 text-white py-2 px-6 focus:outline-none ring-2 ring-purple-300 hover:ring-purple-500  rounded-3xl text-lg"><a
                                 href="/pets">Mis Mascotas</a></button>
                         @else
                             <button
