@@ -138,7 +138,7 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        $pet->images()->delete();
+        $pet->image()->delete();
         $pet->delete();
         return redirect()->route('admin.pets.index', $pet)->with('info', 'La mascota se elimino del registro');
     }

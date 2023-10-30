@@ -34,8 +34,8 @@
             </svg>
           </div>
           <div class="flex-grow">
-            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Busqueda de mascotas Perdidas</h2>
-            <p class="leading-relaxed text-base">La app ayuda a generar una alerta sobre mascotas perdidas, asi se comienza una busqueda inmediata. Se lanza la alerta en la zona donde la mascota se perdio y se empieza la busqueda</p>
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Administra los datos de tus mascotas</h2>
+            <p class="leading-relaxed text-base">La app ayuda a almacenar los datos de las mascotas para poder mostrarlos luego en una card, mediante un qr que se puede escanear podemos acceder a la informacion almacenada de cada mascota.</p>
             <a href="/posts?mascotas-perdidas" class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
