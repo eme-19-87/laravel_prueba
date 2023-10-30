@@ -3,7 +3,7 @@
 @section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Lista de Razas</h1>
+    <h1>Lista de Especies</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,7 @@
             <table class="table table-striped">
                 <thead>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Nombre</th>
                     <th>Descripcion</th>
                     <th colspan="2"></th>
 
@@ -34,7 +34,7 @@
                  @foreach ($pet_type as $pet_type)
                      <tr>
                         <td>{{$pet_type->id}}</td>
-                        <td>{{$pet_type->name}}</td>
+                        <td>{{ucfirst(__($pet_type->name))}}</td>
                         <td>{{$pet_type->description}}</td>
                         <td width="10px">
                             <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.pettypes.edit', $pet_type)}}">Editar</a></td>

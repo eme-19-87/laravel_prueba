@@ -14,10 +14,16 @@ class PetTypeSeeder extends Seeder
     public function run(): void
     {
         PetType::create([
-            'name'=>'dog'
+            'name'=>'dog',
+            'description' => 'Mamífero. Carnívoro/Omnivoro. Sociable que vive en manadas'
         ]);
         PetType::create([
-            'name'=>'cat'
+            'name'=>'cat',
+            'description' => 'Mamífero. Carnívoro. Solitario'
+        ]);
+        PetType::create([
+            'name'=>'turtle',
+            'description' => 'Reptil. Omnívoro. Solitario'
         ]);
     }
 }

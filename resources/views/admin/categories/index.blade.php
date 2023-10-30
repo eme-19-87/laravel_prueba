@@ -23,7 +23,7 @@
             <table class="table table-striped">
                 <thead>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Nombre</th>
                     <th>Descripcion</th>
                     <th colspan="2"></th>
 

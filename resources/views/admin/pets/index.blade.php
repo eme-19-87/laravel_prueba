@@ -19,7 +19,6 @@
         </div>
     @endif
         <div class="card-body">
-            <p>Bienvenido a Administracion.</p>
             <table class="table table-striped">
                 <thead>
                     <th>ID</th>

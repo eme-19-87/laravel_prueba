@@ -2,5 +2,6 @@
     "dog": "perro",
     "cat": "gato",
     "female": "hembra",
-    "male": "macho"
+    "male": "macho",
+    "turtle":"tortuga"
 }

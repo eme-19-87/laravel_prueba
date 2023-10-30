@@ -1,5 +1,4 @@
 <div>
-    Lista de usuarios.
 
     <div class="card">
         <div class="card-header">

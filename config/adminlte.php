@@ -328,7 +328,7 @@ return [
 
         ],
         [
-            'text'        => 'Razas',
+            'text'        => 'Especies',
             'route'       => 'admin.pettypes.index',
             'icon'        => 'fas fa-solid fa-paw fa-fw',
             'can'   => 'admin.pettypes.index',
