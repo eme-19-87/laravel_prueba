@@ -106,7 +106,7 @@
             <div class="py-2 ">
                 <div class="flex items-center justify-center">
                     <button class="p-3 rounded-full bg-amber-400/90" id="generar"
-                        onclick="generateQRCode()">Generar</button>
+                        onclick="generateQRCode()">Generar QR</button>
                 </div>
                 <div class="flex items-center justify-center first-letter" id="qrcode"></div>
                 <div class="flex items-center justify-center pt-2">
