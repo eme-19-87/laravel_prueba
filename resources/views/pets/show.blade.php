@@ -10,10 +10,8 @@
                             <div class="relative">
 
                                 @if ($pet->image)
-                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 relative -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background-color: white;">
-                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute inset-0 -left-4 max-w-[150px]" style=" background-image: url('{{ url(Storage::url($pet->image->url)) }}'); background-size: contain; background-repeat:no-repeat; background-position:center">
-
-                                </div>
+                                
+                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background: url('{{ url(Storage::url($pet->image->url)) }}', color:white); background-size: contain; background-repeat:no-repeat; background-position:center">
                                 </div>
                                     
                                 @else
