@@ -10,8 +10,8 @@
                             <div class="relative">
 
                                 @if ($pet->image)
-                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background-color: white;">
                                 <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background-image: url('{{ url(Storage::url($pet->image->url)) }}'); background-size: contain; background-repeat:no-repeat; background-position:center">
+                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute max-w-[150px]" style=" background-color: white;">
 
                                 </div>
                                 </div>
