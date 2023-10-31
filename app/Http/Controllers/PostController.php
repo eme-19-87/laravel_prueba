@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Image;
@@ -59,5 +60,38 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('posts.index')->with('success', 'Post creado correctamente');
+    }
+    public function update(UpdatePostRequest $request, Post $post)
+    {
+        
+        if ($request->file('file') == null) {
+            $fileIsNotNull = false;
+        } else {$fileIsNotNull = true;};
+        
+
+        $post->update([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'extract' => $request->extract,
+            'body' => $request->body,
+            'status'=> $request->status,
+            'category_id'=>$request->category_id,
+            'user_id'=>$request->user_id
+        ]);
+
+        if ($fileIsNotNull) {
+            $url = $request->file('file')->store('/');
+            if ($post->image) {
+                $image = $post->image()->update([
+                    'url' => $url
+                ]);
+            } else {
+                $image = $post->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.posts.index')->with('info', 'Post actualizado correctamente');
     }
 }

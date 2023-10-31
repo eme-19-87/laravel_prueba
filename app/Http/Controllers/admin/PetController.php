@@ -50,9 +50,8 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
-            'file'=>'file',
+            'file'=>'file|required',
             'name' => 'required',
             'breed' => 'required',
             'age' => 'required',
@@ -130,9 +129,15 @@ class PetController extends Controller
         $pet->update($request->except('file'));
         if ($fileIsNotNull) {
             $url = $request->file('file')->store('/');
-            $image = $pet->image()->update([
-                'url' => $url
-            ]);
+            if ($pet->image) {
+                $image = $pet->image()->update([
+                    'url' => $url
+                ]);
+            } else {
+                $image = $pet->image()->create([
+                    'url' => $url
+                ]);
+            }
         }
 
         return redirect()->route('admin.pets.index', $pet)->with('info', 'Registro de mascota actualizado correctamente');
