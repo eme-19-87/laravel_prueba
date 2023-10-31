@@ -100,7 +100,7 @@
                                                     id="city">
                                                     <option value="">Seleccionar</option>
                                                     @foreach ($cities as $city)
-                                                    <option @if (strtolower($city->name) == $pet->city) selected @endif value="{{strtolower($city->name)}}">{{ucfirst($city->name)}}</option>
+                                                    <option @if (strtolower($city->name) == strtolower($pet->city)) selected @endif value="{{strtolower($city->name)}}">{{ucfirst($city->name)}}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('city')
