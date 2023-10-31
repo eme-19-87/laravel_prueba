@@ -39,6 +39,9 @@
                                                     <input onchange="changeImagePreview()" id="inputFile" type="file" name="file" class="hidden" value="">
                                                 </label>
                                             </div>
+                                            @error('file')
+                                            <small class="text-red-500">{{__($message)}}</small>
+                                            @enderror
                                         </div>
                                         <div class="w-full flex flex-col mb-3">
                                             <label for="pet_type_id" class="font-semibold text-gray-600 py-2">Tipo<abbr
@@ -55,7 +58,7 @@
 
                                             </select>
                                             @error('pet_type_id')
-                                            <small class="text-red-500">{{$message}}</small>
+                                            <small class="text-red-500">{{__($message)}}</small>
                                             @enderror
                                         </div>
                                         <div class="md:flex flex-row md:space-x-4 w-full text-xs">
@@ -67,7 +70,7 @@
                                                     required="required" type="text" name="name"
                                                     id="name" value="{{ old('name') }}">
                                                 @error('name')
-                                                <small class="text-red-500">{{$message}}</small>
+                                                <small class="text-red-500">{{__($message)}}</small>
                                                 @enderror
                                             </div>
                                             <div class="mb-3 space-y-2 w-full text-xs">
@@ -78,7 +81,7 @@
                                                     required="required" type="text" name="breed"
                                                     id="breed" value="{{ old('breed') }}">
                                                 @error('breed')
-                                                <small class="text-red-500">{{$message}}</small>
+                                                <small class="text-red-500">{{__($message)}}</small>
                                                 @enderror
                                             </div>
                                         </div>
@@ -92,7 +95,7 @@
                                                     type="text" name="age"
                                                     id="age" value="{{ old('age') }}">
                                                     @error('age')
-                                                    <small class="text-red-500">{{$message}}</small>
+                                                    <small class="text-red-500">{{__($message)}}</small>
                                                     @enderror
                                             </div>
                                             <div class="w-full flex flex-col mb-3">
@@ -108,7 +111,7 @@
                                                     @endforeach
                                                 </select>
                                                 @error('city')
-                                                <small class="text-red-500">{{$message}}</small>
+                                                <small class="text-red-500">{{__($message)}}</small>
                                                 @enderror
                                             </div>
 
@@ -126,7 +129,7 @@
 
                                             </select>
                                         @error('gender')
-                                        <small class="text-red-500">{{$message}}</small>
+                                        <small class="text-red-500">{{__($message)}}</small>
                                         @enderror                                        
                                         </div>
                                         
@@ -136,7 +139,7 @@
                                                 class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
                                                 placeholder="Describí las características distintivas de tu mascota" spellcheck="false">{{ old('features') }}</textarea>
                                                 @error('features')
-                                                <small class="text-red-500">{{$message}}</small>
+                                                <small class="text-red-500">{{__($message)}}</small>
                                                 @enderror
                                         </div>
                                         <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran

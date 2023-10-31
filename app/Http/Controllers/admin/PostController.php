@@ -100,6 +100,7 @@ class PostController extends Controller
         if ($request->file('file') == null) {
             $fileIsNotNull = false;
         } else {$fileIsNotNull = true;};
+        
 
         $post->update([
             'title' => $request->title,
@@ -113,9 +114,15 @@ class PostController extends Controller
 
         if ($fileIsNotNull) {
             $url = $request->file('file')->store('/');
-            $image = $post->image()->update([
-                'url' => $url
-            ]);
+            if ($post->image) {
+                $image = $post->image()->update([
+                    'url' => $url
+                ]);
+            } else {
+                $image = $post->image()->create([
+                    'url' => $url
+                ]);
+            }
         }
 
         return redirect()->route('admin.posts.index')->with('info', 'Post actualizado correctamente');
