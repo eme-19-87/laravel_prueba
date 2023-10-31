@@ -11,7 +11,7 @@
 
                                 @if ($pet->image)
                                 <div class="h-32 w-32 border-white rounded-full align-middle border-8 relative -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background-color: white;">
-                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute top-0 left-0 max-w-[150px]" style=" background-image: url('{{ url(Storage::url($pet->image->url)) }}'); background-size: contain; background-repeat:no-repeat; background-position:center">
+                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute -top-2 -left-2 max-w-[150px]" style=" background-image: url('{{ url(Storage::url($pet->image->url)) }}'); background-size: contain; background-repeat:no-repeat; background-position:center">
 
                                 </div>
                                 </div>
