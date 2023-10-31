@@ -7,9 +7,9 @@
                 </h1>
                 <p class="text-center text-xl text-white mt-3">Contactate con nosotros para aplicar mejoras en este
                     proyecto</p>
-                <div class="container flex justify-center py-24 mx-auto flex">
+                <div class="container flex justify-center py-24 mx-auto">
                     <div
-                        class="w-9/12 bg-white rounded-lg p-8 flex flex-col md:ml-auto mt-10 md:mt-0 relative shadow-md">
+                        class="w-9/12 bg-white rounded-lg p-8 flex flex-col 2xl:ml-auto mt-10 md:mt-0 relative shadow-md">
                         <div class="flex justify-center justify-items-center gap-6 md:px-0">
                             <div className="relative mb-10">
                                 Email
@@ -59,28 +59,28 @@
                 </div>
             </div>
             </div>
-            <div id="web3forms__widget" x-data="{ open: true }" x-init="() => setTimeout(() => open = false, 2000)">
+            <div id="web3forms__widget" x-data="{ open: false }" x-init="() => setTimeout(() => open = false, 2000)">
                 <div id="w3f__widget--content" x-show="open" x-transition:enter-start="opacity-0 translate-y-5"
                     x-transition:enter="transition duration-200 transform ease"
                     x-transition:leave="transition duration-200 transform ease"
                     x-transition:leave-end="opacity-0 translate-y-5" @click.away="open = false"
-                    class="fixed flex flex-col z-50 bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(100%-95px)] w-full sm:w-[350px] overflow-auto min-h-[250px] sm:h-[600px] bg-white shadow-2xl rounded-md">
-    
+                    class="fixed flex flex-col z-50 bottom-[100px] top-0 right-0 left-0 sm:top-auto sm:right-5 sm:left-auto h-[calc(100%-95px)] w-full sm:w-[350px] overflow-auto min-h-[250px] sm:h-[600px] md:h-[500px] bg-white shadow-2xl rounded-md">
+
                     <div class="flex p-5 flex-col justify-center items-center h-32 bg-lime-700">
                         <h2 class="text-lg text-white">¿Como podemos ayudarte?</h2>
                         <p class="text-white opacity-50">Escribenos si se te ocurre una idea de como podemos mejorar.</p>
                     </div>
-    
+
                     <div class="bg-gray-50 flex-grow p-6">
                         <form action="https://api.web3forms.com/submit" method="POST" id="form"
                             class="needs-validation" novalidate>
-    
+
                             <input type="hidden" name="apikey" value="cf72a954-754a-481b-8223-0e05cacda3fd" />
-    
+
                             <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-    
+
                             <input type="checkbox" name="botcheck" id="" style="display: none;" />
-    
+
                             <div class="mb-4">
                                 <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">
                                     Nombre Completo
@@ -91,7 +91,7 @@
                                     Por favor rellena este campo.
                                 </div>
                             </div>
-    
+
                             <div class="mb-4">
                                 <label for="email"
                                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
@@ -104,7 +104,7 @@
                             <div class="mb-4">
                                 <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu
                                     mensaje</label>
-    
+
                                 <textarea rows="4" name="message" id="message" placeholder="Tu Mensaje"
                                     class="w-full h-28 px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
                                     required></textarea>
@@ -119,8 +119,8 @@
                                 </button>
                             </div>
                         </form>
-    
-    
+
+
                     </div>
                 </div>
                 <button id="w3f__widget--btn" @click="open = !open"
@@ -134,7 +134,7 @@
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                     </svg>
-    
+
                     <svg class="w-6 h-6 text-white absolute" x-show="open"
                         x-transition:enter-start="opacity-0 rotate-45 scale-75"
                         x-transition:enter="transition duration-200 transform ease"

@@ -6,8 +6,8 @@
             </a>
             <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023
                 Iden MAC —
-                <a href="" class="text-gray-600 ml-1" rel="noopener noreferrer"
-                    target="_blank">@esctecnicacmdl</a>
+                <a href="mailto:idenidencam825@gmail.com" class="text-gray-600 ml-1" rel="noopener noreferrer"
+                    target="_blank">idenidencam825@gmail.com</a>
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-5 justify-center sm:justify-start">
                 <a href="https://wa.me/3794528281" class="text-gray-500">

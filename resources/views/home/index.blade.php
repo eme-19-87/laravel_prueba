@@ -3,7 +3,7 @@
         <div class="relative h-screen grid place-items-center pt-14"
             style='background-image: url("https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=1896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'>
 
-            <div class="w-screen h-full bg-black/25">
+            <div class="w-full 2xl:w-screen h-full bg-black/25">
                 <div class="mt-32 mx-auto max-w-2xl py-32 sm:py-48 xl:py-24 2xl:py-56">
                     <div class="absolute inset-0 -z-10 overflow-hidden">
                         <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
@@ -45,7 +45,7 @@
                                 href="{{ route('login') }}">Iniciar</a>
                             </button>
                         @endif
-                        
+
                     </div>
                 </div>
             </div>

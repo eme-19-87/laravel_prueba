@@ -1,6 +1,4 @@
 <x-app-layout>
-    
-    
     <section class="bg-white">
         <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div class="absolute inset-0 -z-10 overflow-hidden">
@@ -22,20 +20,19 @@
                 </svg>
             </div>
             <div class="mx-auto gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:items-start lg:gap-y-10">
-                <div
-                    class="lg:mx-auto lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8 mt-10">
+                <div class="lg:mx-auto lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8 mt-10">
                     <div class="lg:pr-4">
                         <div class="lg:max-w-lg">
                             <p class="text-base font-semibold leading-7 text-indigo-600">{{ $post->category->name }}</p>
                             <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                                 {{ $post->title }}</h1>
-                                <div class="flex items-center mt-6 mb-10">
-                                    <img class="object-cover object-center w-8 h-8 2xl:w-10 2xl:h-10 rounded-full"
-                                        src="{{ $post->user->profile_photo_url }}" alt="">
-                                    <div class="mx-4">
-                                        <h1 class="text-xs 2xl:text-sm text-black"> {{ $post->user->name }}</h1>
-                                    </div>
+                            <div class="flex items-center mt-6 mb-10">
+                                <img class="object-cover object-center w-8 h-8 2xl:w-10 2xl:h-10 rounded-full"
+                                    src="{{ $post->user->profile_photo_url }}" alt="">
+                                <div class="mx-4">
+                                    <h1 class="text-xs 2xl:text-sm text-black"> {{ $post->user->name }}</h1>
                                 </div>
+                            </div>
                             <p class="my-6 text-2xl leading-8 text-gray-500">{{ $post->extract }}</p>
 
 
@@ -51,7 +48,8 @@
                         @if ($post->image)
                             <img src={{ Storage::url($post->image->url) }} alt="" class="w-screen">
                         @else
-                            <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=2896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                            <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=2896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
                         @endif
                     </div>
                 </figure>
