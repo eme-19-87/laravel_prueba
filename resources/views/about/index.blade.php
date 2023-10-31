@@ -17,7 +17,7 @@
           </div>
           <div class="flex-grow">
             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Concientizacion</h2>
-            <p class="leading-relaxed text-base">Creamos Campañas que ayuden a generar conciencia sobre el maltrato animal, juntos podemos generar impacto y cambiar la manera de verlo</p>
+            <p class="leading-relaxed text-base">Disponemos de un blog en el cual las personas pueden ayudar a generar conciencia sobre el maltrato animal, juntos podemos generar impacto y cambiar la manera de verlo</p>
             <a href="/posts?eventos-y-actividades" class="mt-3 text-purple-500 inline-flex items-center">Ver Mas
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                 <path d="M5 12h14M12 5l7 7-7 7"></path>
