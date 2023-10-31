@@ -1,6 +1,8 @@
 <x-app-layout>
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
+
+  <section class="text-gray-600 body-font bg-[url(https://images.unsplash.com/photo-1466781783364-36c955e42a7f?auto=format&fit=crop&q=80&w=3271&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-center ">
+    <div class="backdrop-blur-2xl w-full">
+      <div class="container px-5 py-24 mx-auto">
         <div class="text-center mb-20">
         <h2 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">Sobre Nosotros</h2>
         <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Conocenos mas</p>
@@ -60,6 +62,8 @@
         <button class="flex mx-auto mt-16 text-white bg-lime-700 border-0 py-2 px-8 focus:outline-none hover:bg-lime-800 rounded text-lg">Contactar</button>
       </a>
     </div>
+    </div>
+   
   </section>
 
 </x-app-layout>

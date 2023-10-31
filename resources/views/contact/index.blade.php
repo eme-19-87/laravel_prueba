@@ -9,7 +9,7 @@
                     proyecto</p>
                 <div class="container flex justify-center py-24 mx-auto">
                     <div
-                        class="w-9/12 bg-white rounded-lg p-8 flex flex-col 2xl:ml-auto mt-10 md:mt-0 relative shadow-md">
+                        class="w-9/12 bg-white rounded-3xl p-8 flex flex-col 2xl:ml-auto mt-10 md:mt-0 relative shadow-md">
                         <div class="flex justify-center justify-items-center gap-6 md:px-0">
                             <div className="relative mb-10">
                                 Email
