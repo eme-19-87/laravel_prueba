@@ -1,13 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Tempano')
+@section('title', 'IdenMac')
 
 @section('content_header')
-    <h1>Editar Punto de venta</h1>
+    <h1>Editar Mascota</h1>
 @stop
 
 @section('content')
-<p>Bienvenido a Administracion.</p>
     @if (session('info'))
         <div class="alert alert-success">
             <strong>{{session('info')}}</strong>
@@ -25,7 +24,7 @@
                 {!! Form::label('file', 'Foto') !!}
                 <p class="text-muted">Adjuntá una foto de tu mascota para facilitar su identificación</p>
                 <div class="image-wrapper pb-4 ">
-                        <img class="border rounded-circle" id="imagePreview" width="200" height="200" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img class="border rounded-circle" id="imagePreview" width="200" height="200" src="@if ($pet->image) {{Storage::url($pet->image->url)}} @else https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"@endif alt="">
                 </div>
                 {!! Form::file('file', ['accept' => 'image/*', 'id'=>'inputFile', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()']) !!}
                 @error('file')

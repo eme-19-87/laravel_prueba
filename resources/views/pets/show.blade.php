@@ -35,7 +35,7 @@
                         </div>
                         <div class="flex mt-1 flex-row justify-center w-full mx-auto space-x-2 text-center">
                             <div class=" font-bold tracking-wide text-black font-sans text-xl">
-                                {{ $pet->pet_type->name }}, {{ $pet->gender }}, <br>{{ $pet->age }} Años</div>
+                                {{ ucfirst(__($pet->pet_type->name)) }}, {{ ucfirst(__($pet->gender)) }}, <br>{{ $pet->age }} Años</div>
                         </div>
                     </div>
                     <div class="pt-6 mx-6 mt-6 text-center border-t border-gray-200 dark:border-gray-700/50">
@@ -63,9 +63,18 @@
                     </div>
                     @if (auth()->id() == $pet->user_id)
                         <div class="flex items-center justify-center mt-5">
-                            <button class="p-3 rounded-2xl bg-amber-400/90 ">
-                                <a href="{{$pet->id}}/edit">Editar</a>
-                            </button>
+                            <a href="{{$pet->id}}/edit">
+                                <button class="p-3 rounded-md bg-amber-400/90 ">
+                                    Editar
+                                </button>
+                            </a>
+                            <form action="{{route('pets.destroy', $pet)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" onclick="return confirm('¿Seguro que querés borrar este registro de tu mascota? Esta acción no se puede revertir')" class="text-white p-3 rounded-md bg-red-400/90 ">
+                                    Borrar
+                                </button>
+                            </form>
                         </div>
                     @endif
                     <div class="relative h-6 overflow-hidden translate-y-6 rounded-b-xl">

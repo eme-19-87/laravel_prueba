@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Iden Mac')
+@section('title', 'IdenMac')
 
 @section('content_header')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>

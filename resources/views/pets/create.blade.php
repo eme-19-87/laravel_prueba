@@ -19,6 +19,8 @@
                                 <div class="mt-5">
                                     <form method="POST" action="{{ route('pets.store') }}"
                                         enctype="multipart/form-data" class="form">
+                                        @csrf
+                                        <input type="hidden" name="user_id" value="{{$user->id}}">
                                         <div class="">
                                             <label form="file" class="text-xs font-semibold text-gray-600 py-2">Foto de la
                                                 mascota<abbr class="hidden" title="required">*</abbr></label>
@@ -34,126 +36,119 @@
                                                 <label class="cursor-pointer ">
                                                     <span
                                                         class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-amber-400 hover:bg-amber-500 hover:shadow-lg">Buscar Imagen</span>
-                                                    <input type="file" class="hidden" :multiple="multiple"
-                                                        :accept="accept">
+                                                    <input onchange="changeImagePreview()" id="inputFile" type="file" name="file" class="hidden" value="">
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="w-full flex flex-col mb-3">
+                                            <label for="pet_type_id" class="font-semibold text-gray-600 py-2">Tipo<abbr
+                                                    title="required">*</abbr></label>
+                                            <select
+                                                class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
+                                                required="required" name="pet_type_id"
+                                                id="pet_type_id">
+                                                <option value="{{ old('pet_type_id') }}">Seleccionar</option>
+                                                @foreach ($petTypes as $petType)
+                                                <option value="{{$petType->id}}">{{ucfirst(__($petType->name))}}</option>
+                                                @endforeach
+                                                
+
+                                            </select>
+                                            @error('pet_type_id')
+                                            <small class="text-red-500">{{$message}}</small>
+                                            @enderror
+                                        </div>
                                         <div class="md:flex flex-row md:space-x-4 w-full text-xs">
                                             <div class="mb-3 space-y-2 w-full text-xs">
-                                                <label class="font-semibold text-gray-600 py-2">Nombre
+                                                <label for="name" class="font-semibold text-gray-600 py-2">Nombre
                                                     <abbr title="required">*</abbr></label>
                                                 <input placeholder="Nombre de la mascota"
                                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                                    required="required" type="text" name="integration[shop_name]"
-                                                    id="integration_shop_name">
-                                                <p class="text-red text-xs hidden">Por favor rellena este Campo.
-                                                </p>
+                                                    required="required" type="text" name="name"
+                                                    id="name" value="{{ old('name') }}">
+                                                @error('name')
+                                                <small class="text-red-500">{{$message}}</small>
+                                                @enderror
                                             </div>
                                             <div class="mb-3 space-y-2 w-full text-xs">
-                                                <label class="font-semibold text-gray-600 py-2">Raza
+                                                <label for="breed" class="font-semibold text-gray-600 py-2">Raza
                                                     <abbr title="required">*</abbr></label>
-                                                <input placeholder="Raza"
+                                                <input placeholder="Raza de tu mascota"
                                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                                    required="required" type="text" name="integration[shop_name]"
-                                                    id="integration_shop_name">
-                                                <p class="text-red text-xs hidden">Por favor rellena este Campo.
-                                                </p>
+                                                    required="required" type="text" name="breed"
+                                                    id="breed" value="{{ old('breed') }}">
+                                                @error('breed')
+                                                <small class="text-red-500">{{$message}}</small>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
                                             <div class="w-full flex flex-col mb-3">
-                                                <label class="font-semibold text-gray-600 py-2">Edad <abbr
+                                                <label for="age" class="font-semibold text-gray-600 py-2">Edad <abbr
                                                         title="Required field">*</abbr></label>
                                                 <input placeholder="Edad"
                                                     class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
-                                                    type="text" name="integration[street_address]"
-                                                    id="integration_street_address">
+                                                    type="text" name="age"
+                                                    id="age" value="{{ old('age') }}">
+                                                    @error('age')
+                                                    <small class="text-red-500">{{$message}}</small>
+                                                    @enderror
                                             </div>
                                             <div class="w-full flex flex-col mb-3">
-                                                <label class="font-semibold text-gray-600 py-2">Ubicación<abbr
+                                                <label for="city" class="font-semibold text-gray-600 py-2">Ubicación<abbr
                                                         title="required">*</abbr></label>
                                                 <select
                                                     class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
-                                                    required="required" name="integration[city_id]"
-                                                    id="integration_city_id">
-                                                    <option value="">Corrientes</option>
-                                                    <option value="">Misiones</option>
-                                                    <option value="">Entre Rios</option>
-                                                    <option value="">Buenos Aires</option>
-                                                    <option value="">Córdoba</option>
-                                                    <option value="">Catamarca</option>
-                                                    <option value="">Chaco</option>
-                                                    <option value="">Chubut</option>
-                                                    <option value="">Formosa</option>
-                                                    <option value="">Jujuy</option>
-                                                    <option value="">La Pampa</option>
-                                                    <option value="">La Rioja</option>
-                                                    <option value="">Mendoza</option>
-                                                    <option value="">Neuquén</option>
-                                                    <option value="">Río Negro</option>
-                                                    <option value="">Salta</option>
-                                                    <option value="">San Juan</option>
-                                                    <option value="">San Juan</option>
-                                                    <option value="">Santa Cruz</option>
-                                                    <option value="">Santa Fe</option>
-                                                    <option value="">Santiago del Estero</option>
-                                                    <option value="">Tierra del Fuego, Antártida e Islas del
-                                                        Atlántico Sur</option>
-                                                    <option value="">Tucumán</option>
-                                                    <option value="">CABA</option>
+                                                    required="required" name="city"
+                                                    id="city">
+                                                    <option value="{{ old('city') }}">Seleccionar</option>
+                                                    @foreach ($cities as $city)
+                                                    <option value="{{$city->name}}">{{$city->name}}</option>
+                                                    @endforeach
                                                 </select>
-                                                <p class="text-sm text-red-500 hidden mt-3" id="error">
-                                                    Por favor rellena este Campo.</p>
+                                                @error('city')
+                                                <small class="text-red-500">{{$message}}</small>
+                                                @enderror
                                             </div>
 
                                         </div>
                                         <div class="w-full flex flex-col mb-3">
-                                            <label class="font-semibold text-gray-600 py-2">Genero<abbr
+                                            <label for="gender" class="font-semibold text-gray-600 py-2">Genero<abbr
                                                     title="required">*</abbr></label>
                                             <select
                                                 class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
-                                                required="required" name="integration[city_id]"
-                                                id="integration_city_id">
-                                                <option value="">Macho</option>
-                                                <option value="">Hembra</option>
+                                                required="required" name="gender"
+                                                id="gender">
+                                                <option value="{{ old('gender') }}">Seleccionar</option>
+                                                <option value="male">Macho</option>
+                                                <option value="female">Hembra</option>
 
                                             </select>
-                                            <p class="text-sm text-red-500 hidden mt-3" id="error">
-                                                Por favor rellena este Campo.</p>
+                                        @error('gender')
+                                        <small class="text-red-500">{{$message}}</small>
+                                        @enderror                                        
                                         </div>
-                                        <div class="w-full flex flex-col mb-3">
-                                            <label class="font-semibold text-gray-600 py-2">Tipo<abbr
-                                                    title="required">*</abbr></label>
-                                            <select
-                                                class="block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 md:w-full "
-                                                required="required" name="integration[city_id]"
-                                                id="integration_city_id">
-                                                <option value="">Perro</option>
-                                                <option value="">Gato</option>
-                                                <option value="">Loro</option>
-                                                <option value="">Tortuga</option>
-
-                                            </select>
-                                            <p class="text-sm text-red-500 hidden mt-3" id="error">
-                                                Por favor rellena este Campo.</p>
-                                        </div>
+                                        
                                         <div class="flex-auto w-full mb-1 text-xs space-y-2">
-                                            <label class="font-semibold text-gray-600 py-2">Descripción</label>
-                                            <textarea required="" name="message" id=""
+                                            <label for="features" class="font-semibold text-gray-600 py-2">Descripción</label>
+                                            <textarea required="" name="features" id="features"
                                                 class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
-                                                placeholder="Describe a tu mascotas" spellcheck="false"></textarea>
+                                                placeholder="Describí las características distintivas de tu mascota" spellcheck="false">{{ old('features') }}</textarea>
+                                                @error('features')
+                                                <small class="text-red-500">{{$message}}</small>
+                                                @enderror
                                         </div>
                                         <p class="text-xs text-red-500 text-right my-3">Los Campos requeridos seran
                                             marcados con un <abbr title="Required field">*</abbr></p>
                                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                                            <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider  text-gray-600 rounded-full hover:shadow-lg hover:bg-amber-200">
-                                                Cancelar</button>
-                                            <button
-                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500"><label for="">Guardar</label>
-                                                <input type="submit">
+                                            <a href="{{route('pets.index')}}">
+                                                <button type="button"
+                                                    class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider  text-gray-600 rounded-full hover:shadow-lg hover:bg-amber-200">
+                                                    Cancelar</button>
+                                            </a>
+                                            <button type="submit"
+                                                class="mb-2 md:mb-0 bg-amber-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-amber-500">Guardar
                                             </button>
                                         </div>
                                     </form>
@@ -205,6 +200,17 @@
     </style>
     
     <script>
+        function changeImagePreview(){
+            var input = document.getElementById('inputFile')
+            var file = input.files[0]
+            var imagePreview = document.getElementById('picture')
+            var reader = new FileReader();
+            reader.onload = function (e){
+            // convert image file to base64 string
+            imagePreview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+    }
         document.getElementById("file").addEventListener('change', cambiar);
 
         function cambiar(event) {

@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Iden MAC')
+@section('title', 'IdenMac')
 
 @section('content_header')
     <h1>Iden MAC</h1>
@@ -121,7 +121,7 @@
 
 
 
-            {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary']) !!}
+            {!! Form::submit('Actualizar Post', ['class' => 'mt-4 text-white btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

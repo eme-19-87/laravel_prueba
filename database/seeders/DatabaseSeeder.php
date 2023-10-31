@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentSeeder::class);
         $this->call(PetTypeSeeder::class);
         $this->call(PetSeeder::class);
+        $this->call(CitySeeder::class);
         
     }
 }

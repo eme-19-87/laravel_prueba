@@ -38,11 +38,5 @@ class CategorySeeder extends Seeder
             'slug'  =>  'eventos-y-actividades',
             'description'  =>  'Actividades organizadas por administradores y patrocinadores'
         ]);
-
-        Category::create([
-            'name'  =>  'Tips',
-            'slug'  =>  'tips',
-            'description'  =>  'tips'
-        ]);
     }
 }
