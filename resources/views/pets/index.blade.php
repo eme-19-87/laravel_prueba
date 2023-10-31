@@ -1,5 +1,6 @@
 <x-app-layout>
     <div>
+
         <head>
             <link rel="stylesheet"
                 href="https://horizon-tailwind-react-corporate-7s21b54hb-horizon-ui.vercel.app/static/css/main.d7f96858.css" />
@@ -7,12 +8,12 @@
 
         <body>
             @if (session('info'))
-        <div class="alert alert-success">
-            <strong>
-                {{session('info')}}
-            </strong>
-        </div>
-    @endif
+                <div class="alert alert-success">
+                    <strong>
+                        {{ session('info') }}
+                    </strong>
+                </div>
+            @endif
             <div class="flex flex-col justify-center items-center h-[100vh] pt-4"
                 style='background-image: url("https://images.unsplash.com/photo-1601758177266-bc599de87707?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'>
                 <div
@@ -22,11 +23,10 @@
                             Mascotas
                         </div>
                         <a href="pets/create">
-                        <button
-                        type="button"
-                            class="linear rounded-[20px] bg-lightPrimary px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-gray-100 active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20">
-                                    Registrar Mascota
-                                </button>
+                            <button type="button"
+                                class="linear rounded-[20px] bg-lightPrimary px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-gray-100 active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20">
+                                Registrar Mascota
+                            </button>
                         </a>
                     </div>
 
@@ -37,10 +37,13 @@
                             <div class="flex items-center gap-3">
                                 <div class="flex h-24 w-24 items-center justify-center">
 
-                                    @if ($pet->image)
-                                        <img class="rounded-xl container" style="background-size: cover" src="{{ Storage::url($pet->image->url) }}"
-                                            alt="" />
-                                    @endif
+                                    <div class="h-full w-ful">
+                                        @if ($pet->image)
+                                            <img class="rounded-xl" style="background-size: cover"
+                                                src="{{ Storage::url($pet->image->url) }}" alt="" />
+                                        @endif
+
+                                    </div>
 
                                 </div>
                                 <div class="flex flex-col">
@@ -71,6 +74,6 @@
             </div>
         </body>
 
-        
+
     </div>
 </x-app-layout>
