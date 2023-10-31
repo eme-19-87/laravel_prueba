@@ -37,7 +37,7 @@
                             <div class="flex items-center gap-3">
                                 <div class="flex h-24 w-24 items-center justify-center">
 
-                                    <div class="h-full w-ful">
+                                    <div class="h-24 w-24">
                                         @if ($pet->image)
                                             <img class="rounded-xl" style="background-size: cover"
                                                 src="{{ Storage::url($pet->image->url) }}" alt="" />
