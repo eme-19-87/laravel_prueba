@@ -3,7 +3,7 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <div class="from-gray-200 via-gray-300 to-gray-400 bg-gradient-to-br">
         <div class='flex pt-32 2xl:pt-0 items-center justify-center min-h-screen 2xl:h-auto'>
-            <div class="relative w-full group max-w-md min-w-0 mx-auto mt-6 mb-6 break-words bg-white border md:max-w-sm rounded-xl">
+            <div class="relative w-full group max-w-md min-w-0 mx-auto mt-12 mb-6 break-words bg-white border md:max-w-sm rounded-xl">
                 <div class="pb-6">
                     <div class="flex flex-wrap justify-center">
                         <div class="flex justify-center w-full">
