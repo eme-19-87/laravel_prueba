@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Iden Mac')
+@section('title', 'IdenMac')
 
 @section('content_header')
     <h1>Mascota</h1>

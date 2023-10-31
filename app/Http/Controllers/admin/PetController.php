@@ -65,9 +65,7 @@ class PetController extends Controller
         $url = $request->file('file')->store('/');
         $pet = Pet::create($request->except('file'));
         $pet->image()->create([
-            'url' => $url,
-            'imageable_id' => $pet->id,
-            'imageable_type' => 'App\Models\Pet'
+            'url' => $url
         ]);
 
 
@@ -114,20 +112,30 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
+        if ($request->file('file') == null) {
+            $fileIsNotNull = false;
+        } else {$fileIsNotNull = true;};
         $request->validate([
-            'name' => "required:pets,name,$pet->id",
+            'file'=>'file|nullable',
+            'name' => 'required',
             'breed' => 'required',
             'age' => 'required',
             'gender' => 'required',
             'features' => 'required',
             'city' => 'required',
-            'pet_type_id' => "required:pets,pet_type_id,$pet->id",
-            'user_id' => "required:pets,user_id,$pet->id",
+            'pet_type_id' => "required",
+            'user_id' => "required",
         ]);
+        
+        $pet->update($request->except('file'));
+        if ($fileIsNotNull) {
+            $url = $request->file('file')->store('/');
+            $image = $pet->image()->update([
+                'url' => $url
+            ]);
+        }
 
-        $pet->update($request->all());
-
-        return redirect()->route('admin.pets.index', $pet)->with('info', 'El Punto se actualizo con exito');
+        return redirect()->route('admin.pets.index', $pet)->with('info', 'Registro de mascota actualizado correctamente');
     }
 
     /**

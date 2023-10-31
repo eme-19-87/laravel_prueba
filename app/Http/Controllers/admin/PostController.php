@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Tags;
 use Illuminate\Support\Facades\Storage;
 
@@ -93,7 +94,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         
         if ($request->file('file') == null) {
@@ -111,7 +112,7 @@ class PostController extends Controller
         ]);
 
         if ($fileIsNotNull) {
-            $url = $request->file('file')->store('public/post');
+            $url = $request->file('file')->store('/');
             $image = $post->image()->update([
                 'url' => $url
             ]);

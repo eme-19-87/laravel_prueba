@@ -6,6 +6,13 @@
         </head>
 
         <body>
+            @if (session('info'))
+        <div class="alert alert-success">
+            <strong>
+                {{session('info')}}
+            </strong>
+        </div>
+    @endif
             <div class="flex flex-col justify-center items-center h-[100vh] pt-4"
                 style='background-image: url("https://images.unsplash.com/photo-1601758177266-bc599de87707?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'>
                 <div
@@ -14,12 +21,13 @@
                         <div class="text-lg font-bold text-navy-700 dark:text-white">
                             Mascotas
                         </div>
+                        <a href="pets/create">
                         <button
+                        type="button"
                             class="linear rounded-[20px] bg-lightPrimary px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-gray-100 active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20">
-                                <a href="pets/create">
                                     Registrar Mascota
-                                </a>
-                        </button>
+                                </button>
+                        </a>
                     </div>
 
 
@@ -48,7 +56,7 @@
                             <div class="mt-1 flex items-center justify-center text-navy-700 dark:text-white">
                                 <div class="ml-1 flex items-center text-sm font-bold text-navy-700 dark:text-white">
 
-                                    <p class="ml-1">{{ $pet->pet_type->name }}</p>
+                                    <p class="ml-1">{{ ucfirst(__($pet->pet_type->name)) }}</p>
                                 </div>
                                 <div class="ml-2 flex items-center text-sm font-normal text-gray-600 dark:text-white">
                                     <p>{{ $pet->age }} Años de Edad</p>
