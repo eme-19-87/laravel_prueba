@@ -6,10 +6,11 @@
 @stop
 
 @section('content')
-<p>Bienvenido a Administracion.</p>
+    
+
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
+            {!! Form::open(['route' => 'admin.posts.store', 'id'=>'createForm', 'autocomplete' => 'off', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -18,16 +19,20 @@
                 {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Título del post']) !!}
 
                 @error('title')
-                <small class="text-danger">{{$message}}</small>
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
 
             <div class="form-group">
                 {!! Form::label('slug', 'Slug:') !!}
-                {!! Form::text('slug', NULL, ['class' => 'form-control', 'placeholder' => 'Slug del post, para uso del software unicamente', 'readonly']) !!}
+                {!! Form::text('slug', null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Slug del post, para uso del software unicamente',
+                    'readonly',
+                ]) !!}
 
                 @error('slug')
-                <small class="text-danger">{{$message}}</small>
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
 
@@ -36,7 +41,7 @@
                 {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
 
                 @error('category_id')
-                <small class="text-danger">{{$message}}</small>
+                    <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
 
@@ -72,62 +77,64 @@
                 </label>
 
                 @error('status')
-              <small class="text-danger">{{$message}}</small>
-               @enderror
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
             <div class="row">
-              <div class="col">
-                  <div class="image-wrapper">
-                      @isset ($post->image)
-                          <img id="picture" src="{{Storage::url($post->image->url)}}" alt="">
-                      @else
-                          <img id="picture" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                      @endisset
-                  </div>
-              </div>
-              <div class="col">
-                  <div class="form-group">
-                      {!! Form::label('file', 'Imagen del Post') !!}
-                      {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
-                      @error('file')
-                          <span class="text-danger">{{$message}}</span>
-                      @enderror
-                  </div>
-              </div>
+                <div class="col">
+                    <div class="image-wrapper">
+                        
+                            <img id="imagePreview"
+                                src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        {!! Form::label('file', 'Imagen del Post') !!}
+                        {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()', 'id'=>'inputFile']) !!}
+                        @error('file')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
-           {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
+            {{--  <p class="font-weight-bold mb-1">Extracto:</p> --}}
             <div class="form-group">
-              {!! Form::label('extract:') !!}
-              {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
+                {!! Form::label('extract:') !!}
+                {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
 
-              @error('extract')
-              <small class="text-danger">{{$message}}</small>
-            @enderror
+                @error('extract')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
 
 
             {{-- <p class="font-weight-bold mt-4">Body:</p> --}}
             <div class="mt-4 form-group">
-              {!! Form::label('body:') !!}
-              {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                {!! Form::label('body:') !!}
+                {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'summernote']) !!}
 
-              @error('body')
-            <small class="text-danger">{{$message}}</small>
-            @enderror
+                @error('body')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
             </div>
 
 
 
-             {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary'])!!}
-             {!! Form::close() !!}
+            {!! Form::submit('Crear Post', ['class' => 'mt-4 text-white btn btn-primary']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @stop
 
 @section('css')
+    <!-- summernote css -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     <style>
         .image-wrapper {
             position: relative;
@@ -145,37 +152,67 @@
 
 
 @section('js')
-     {{-- CKEditor --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+    {{-- Include HTML Sanitizer to prevent XSS attacks --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- summernote js -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
     {{-- Plugin para asignar automaticamente una Slug a cada categoria --}}
-    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}">
-    </script>
+    <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
 
     <script>
-        //Slug Automatica
-        $(document).ready( function() {
-          $("#title").stringToSlug({
-            setEvents: 'keyup keydown blur',
-            getPut: '#slug',
-            space: '-'
-           });
+        // Summernote
+        $(document).ready(function() {
+            $('#summernote').summernote();
         });
 
-          // Cambiar la imagen
+        var form = document.getElementById('createForm');
+        form.addEventListener("submit", sanitizeSummernote);
+        function sanitizeSummernote(event){
+            var markupStr = $('#summernote').summernote('code');
+            console.log(markupStr);
+            var clean = DOMPurify.sanitize(markupStr);
+            console.log(clean)
 
-          document.getElementById("file").addEventListener('change', cambiar);
+        }
 
-          function cambiar(event) {
-            var file = event.target.files[0];
+        
 
+
+        //Slug Automatica
+        $(document).ready(function() {
+            $("#title").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+
+        // Cambiar la imagen
+        function changeImagePreview(){
+            var input = document.getElementById('inputFile')
+            var file = input.files[0]
+            var imagePreview = document.getElementById('imagePreview')
             var reader = new FileReader();
-            reader.onload = function(e){
-              document.getElementById("picture").setAttribute('src', e.target.result);
+            reader.onload = function (e){
+            // convert image file to base64 string
+            imagePreview.src = e.target.result;
             }
-
             reader.readAsDataURL(file);
-          }
+    }
+
+        // document.getElementById("file").addEventListener('change', cambiar);
+
+        // function cambiar(event) {
+        //     var file = event.target.files[0];
+
+        //     var reader = new FileReader();
+        //     reader.onload = function(e) {
+        //         document.getElementById("picture").setAttribute('src', e.target.result);
+        //     }
+
+        //     reader.readAsDataURL(file);
+        // }
 
         /*  ClassicEditor
           .create( document.querySelector( '#extract' ) )

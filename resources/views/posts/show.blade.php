@@ -1,4 +1,6 @@
 <x-app-layout>
+    
+    
     <section class="bg-white">
         <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
             <div class="absolute inset-0 -z-10 overflow-hidden">
@@ -54,7 +56,7 @@
                     </div>
                 </figure>
                 <div class="mx-24 my-4">
-                    <p class="text-xl text-black">{{ $post->body }}</p>
+                    <p class="text-xl text-black">{!! $post->body !!}</p>
                 </div>
             </div>
 

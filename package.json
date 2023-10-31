@@ -26,6 +26,7 @@
     "dependencies": {
         "@alpinejs/focus": "^3.12.3",
         "alpinejs": "^3.12.3",
+        "dompurify": "^3.0.6",
         "flowbite": "^1.7.0",
         "leaflet": "^1.9.4"
     }

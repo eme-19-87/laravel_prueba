@@ -6,10 +6,12 @@
 @stop
 
 @section('content')
-    <p>Bienvenido a Administracion.</p>
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <div class="card">
         <div class="card-body">
-            {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put', 'files' => true]) !!}
+            {!! Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put', 'files' => true, 'id'=>'editForm']) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -78,9 +80,9 @@
                 <div class="col">
                     <div class="image-wrapper">
                         @isset($post->image)
-                            <img id="picture" class="img-fluid" src="{{ Storage::url($post->image->url) }}" alt="">
+                            <img id="imagePreview" class="img-fluid" src="{{ Storage::url($post->image->url) }}" alt="">
                         @else
-                            <img id="picture" class="img-fluid"
+                            <img id="imagePreview" class="img-fluid"
                                 src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=2688&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 alt="">
                         @endisset
@@ -89,7 +91,7 @@
                 <div class="col">
                     <div class="form-group">
                         {!! Form::label('file', 'Imagen del Post') !!}
-                        {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
+                        {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file', 'onchange'=>'changeImagePreview()', 'id'=>'inputFile']) !!}
                         @error('file')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -112,7 +114,7 @@
             {{-- <p class="font-weight-bold mt-4">Body:</p> --}}
             <div class="mt-4 form-group">
                 {!! Form::label('body:') !!}
-                {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                {!! Form::textarea('body', null, ['class' => 'form-control', 'id' => 'summernote']) !!}
 
                 @error('body')
                     <small class="text-danger">{{ $message }}</small>
@@ -128,12 +130,42 @@
 @stop
 
 @section('css')
+    <!-- summernote css -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
+    {{-- Include HTML Sanitizer to prevent XSS attacks --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" integrity="sha512-H+rglffZ6f5gF7UJgvH4Naa+fGCgjrHKMgoFOGmcPTRwR6oILo5R+gtzNrpDp7iMV3udbymBVjkeZGNz1Em4rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- summernote js -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+         // Summernote
+         $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+
+
     <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
     <script>
+        // Summernote
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+
+        var form = document.getElementById('editForm');
+        form.addEventListener("submit", sanitizeSummernote);
+        function sanitizeSummernote(event){
+            var markupStr = $('#summernote').summernote('code');
+            console.log(markupStr);
+            var clean = DOMPurify.sanitize(markupStr);
+            console.log(clean)
+
+        }
+
         $(document).ready(function() {
             $("#title").stringToSlug({
                 setEvents: 'keyup keydown blur',
@@ -141,6 +173,18 @@
                 space: '-'
             });
         });
+        // Cambiar la imagen
+        function changeImagePreview(){
+            var input = document.getElementById('inputFile')
+            var file = input.files[0]
+            var imagePreview = document.getElementById('imagePreview')
+            var reader = new FileReader();
+            reader.onload = function (e){
+            // convert image file to base64 string
+            imagePreview.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+    }
 
         document.getElementById("file").addEventListener('change', cambiar);
 
