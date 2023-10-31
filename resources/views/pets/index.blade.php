@@ -39,7 +39,7 @@
 
                                     <div class="h-24 w-24">
                                         @if ($pet->image)
-                                            <img class="rounded-xl" style="background-size: cover"
+                                            <img class="rounded-xl" style="background-size: contain"
                                                 src="{{ Storage::url($pet->image->url) }}" alt="" />
                                         @endif
 
