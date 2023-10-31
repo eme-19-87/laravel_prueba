@@ -13,7 +13,7 @@
                         <div class="flex justify-center justify-items-center gap-6 md:px-0">
                             <div className="relative mb-10">
                                 Email
-                                <a href="mailto:Idenidencam825@gmail.com"
+                                <a href="mailto:idencam825@gmail.com"
                                     className="leading-7 text-sm text-gray-600 font-semibold justify-center flex mt-1">
                                     <svg width="45" height="45" viewBox="0 0 27 27" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">

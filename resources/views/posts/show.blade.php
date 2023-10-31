@@ -36,7 +36,7 @@
                                         <h1 class="text-xs 2xl:text-sm text-black"> {{ $post->user->name }}</h1>
                                     </div>
                                 </div>
-                            <p class="my-6 text-md leading-8 text-gray-500">{{ $post->extract }}</p>
+                            <p class="my-6 text-2xl leading-8 text-gray-500">{{ $post->extract }}</p>
 
 
                         </div>
