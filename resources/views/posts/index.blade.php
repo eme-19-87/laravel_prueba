@@ -28,7 +28,7 @@
                 </a>
                 <h2 class="text-white text-2xl font-extrabold mb-2">{{$post->title}}</h2>
                 <p class="text-lg font-normal text-white mb-4">{{$post->extract}}</p>
-                <a href="/posts/{{$post->id}}" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-400 hover:bg-blue-500 hover:text-white focus:ring-4 focus:ring-blue-200">
+                <a href="/posts/{{$post->id}}" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-lime-700 hover:bg-lime-800 hover:text-white focus:ring-4 focus:ring-blue-200">
                   Ver Más
                   <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
