@@ -35,10 +35,10 @@
                         <div
                             class="flex h-full w-full items-start justify-between rounded-md border-[1px] border-[transparent] dark:hover:border-white/20 bg-white px-3 py-[20px] transition-all duration-150 hover:border-gray-200 dark:!bg-navy-800 dark:hover:!bg-navy-700">
                             <div class="flex items-center gap-3">
-                                <div class="flex h-16 items-center justify-center">
+                                <div class="flex h-24 w-24 items-center justify-center">
 
                                     @if ($pet->image)
-                                        <img class="h-24 w-24 rounded-xl container" src="{{ Storage::url($pet->image->url) }}"
+                                        <img class="w-full h-full rounded-xl container" src="{{ Storage::url($pet->image->url) }}"
                                             alt="" />
                                     @endif
 
