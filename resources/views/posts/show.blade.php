@@ -49,13 +49,13 @@
                 <figure class="flex justify-center">
                     <div class="w-9/12 h-42">
                         @if ($post->image)
-                            <img src={{ Storage::url($post->image->url) }} alt="" class="w-screen h-screen">
+                            <img src={{ Storage::url($post->image->url) }} alt="" class="w-screen">
                         @else
                             <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=2896&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                         @endif
                     </div>
                 </figure>
-                <div class="mx-24 my-4">
+                <div class="sm:mx-14 md:mx-14 xl:mx-24 2xl:mx-24 3xl:mx-24 my-4">
                     <p class="text-xl text-black">{!! $post->body !!}</p>
                 </div>
             </div>
