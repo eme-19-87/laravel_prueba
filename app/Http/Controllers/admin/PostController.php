@@ -136,6 +136,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->image()->delete();
         $post->delete();
         return redirect()->route('admin.posts.index')->with('info', 'El Post se elimino con exito');
     }
