@@ -10,9 +10,10 @@
                             <div class="relative">
 
                                 @if ($pet->image)
-                                
-                                    <img style="max-height: 134px; max-width: 134px" class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"
-                                        src="{{ Storage::url($pet->image->url) }}" alt="" />
+                                <div class="h-32 w-32 border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]" style=" background-image: url('{{ url(Storage::url($pet->image->url)) }}')">
+
+                                </div>
+                                    
                                 @else
                                     <img style="max-height: 134px; max-width: 134px" src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80" class="border-white rounded-full align-middle border-8 absolute -m-16 -ml-18 lg:-ml-16 max-w-[150px]"/>
                                 @endif
