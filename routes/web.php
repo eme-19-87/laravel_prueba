@@ -44,6 +44,7 @@ Route::get('/pets/{pet}', [PetController::class, 'show'])->name('pets.show');
 Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');
 Route::get('/pets/{pet}/edit', [PetController::class, 'edit'])->name('pets.edit');
 
+Route::post('/sendemail', [App\Http\Controllers\EmailController::class, 'sendemail'])->name('sendemail');
 
 Route::middleware([
     'auth:sanctum',

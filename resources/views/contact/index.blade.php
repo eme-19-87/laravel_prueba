@@ -72,21 +72,26 @@
                     </div>
 
                     <div class="bg-gray-50 flex-grow p-6">
-                        <form action="https://api.web3forms.com/submit" method="POST" id="form"
-                            class="needs-validation" novalidate>
-
-                            <input type="hidden" name="apikey" value="cf72a954-754a-481b-8223-0e05cacda3fd" />
-
-                            <input type="hidden" name="subject" value="New Submission from Web3Forms" />
-
-                            <input type="checkbox" name="botcheck" id="" style="display: none;" />
+                        <form action="{{route('sendemail')}}" method="POST">
+                            @csrf
 
                             <div class="mb-4">
-                                <label for="full_name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">
+                                <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">
                                     Nombre Completo
                                 </label>
-                                <input type="text" name="name" id="full_name" placeholder="Juan Perez" required
-                                    class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <input type="text" name="name" id="name" placeholder="Juan Perez" required
+                                    class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
+                                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                                    Por favor rellena este campo.
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="subjet" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">
+                                    Asunto
+                                </label>
+                                <input type="text" name="subjet" id="subjet" placeholder="Podria ayudar en..." required
+                                    class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
                                 <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
                                     Por favor rellena este campo.
                                 </div>
@@ -96,7 +101,7 @@
                                 <label for="email"
                                     class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
                                 <input type="email" name="email" id="email" placeholder="tu@ejemplo.com" required
-                                    class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                    class="w-full px-3 py-2 bg-white placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300">
                                 <div class="empty-feedback text-red-400 text-sm mt-1">
                                     Por favor, indicanos tu email.
                                 </div>
@@ -113,9 +118,9 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button type="submit"
+                                <button type="submit" onclick="return confirm('¿Seguro que quieres enviar? Nos enviaras un mensaje en cuanto aceptes')" 
                                     class="w-full px-3 py-4 text-white bg-lime-700 rounded-md focus:bg-lime-800 focus:outline-none">
-                                    Enviar
+                                     Enviar
                                 </button>
                             </div>
                         </form>
@@ -173,84 +178,5 @@
                 --tw-ring-color: rgba(220, 53, 69, 0.2);
             }
         </style>
-
-        <script type="module" src="https://cdn.skypack.dev/twind/shim"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-        <script>
-            (function() {
-                "use strict";
-                /*
-                 * Form Validation
-                 */
-
-                // Fetch all the forms we want to apply custom validation styles to
-                const forms = document.querySelectorAll(".needs-validation");
-                const result = document.getElementById("result");
-                // Loop over them and prevent submission
-                Array.prototype.slice.call(forms).forEach(function(form) {
-                    form.addEventListener(
-                        "submit",
-                        function(event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-
-                                form.querySelectorAll(":invalid")[0].focus();
-                            } else {
-                                /*
-                                 * Form Submission using fetch()
-                                 */
-
-                                const formData = new FormData(form);
-                                event.preventDefault();
-                                event.stopPropagation();
-                                const object = {};
-                                formData.forEach((value, key) => {
-                                    object[key] = value;
-                                });
-                                const json = JSON.stringify(object);
-                                result.innerHTML = "Please wait...";
-
-                                fetch("https://api.web3forms.com/submit", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                            Accept: "application/json"
-                                        },
-                                        body: json
-                                    })
-                                    .then(async (response) => {
-                                        let json = await response.json();
-                                        if (response.status == 200) {
-                                            result.innerHTML = json.message;
-                                            result.classList.remove("text-gray-500");
-                                            result.classList.add("text-green-500");
-                                        } else {
-                                            console.log(response);
-                                            result.innerHTML = json.message;
-                                            result.classList.remove("text-gray-500");
-                                            result.classList.add("text-red-500");
-                                        }
-                                    })
-                                    .catch((error) => {
-                                        console.log(error);
-                                        result.innerHTML = "Something went wrong!";
-                                    })
-                                    .then(function() {
-                                        form.reset();
-                                        form.classList.remove("was-validated");
-                                        setTimeout(() => {
-                                            result.style.display = "none";
-                                        }, 5000);
-                                    });
-                            }
-                            form.classList.add("was-validated");
-                        },
-                        false
-                    );
-                });
-            })();
-        </script>
     </section>
 </x-app-layout>
